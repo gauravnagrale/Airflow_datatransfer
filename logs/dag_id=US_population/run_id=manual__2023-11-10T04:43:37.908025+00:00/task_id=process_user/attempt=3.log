@@ -1,0 +1,33 @@
+[2023-11-10T04:45:48.274+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: US_population.process_user manual__2023-11-10T04:43:37.908025+00:00 [queued]>
+[2023-11-10T04:45:48.294+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: US_population.process_user manual__2023-11-10T04:43:37.908025+00:00 [queued]>
+[2023-11-10T04:45:48.295+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-10T04:45:48.295+0000] {taskinstance.py:1363} INFO - Starting attempt 3 of 3
+[2023-11-10T04:45:48.297+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-10T04:45:48.323+0000] {taskinstance.py:1383} INFO - Executing <Task(PythonOperator): process_user> on 2023-11-10 04:43:37.908025+00:00
+[2023-11-10T04:45:48.333+0000] {standard_task_runner.py:55} INFO - Started process 1556 to run task
+[2023-11-10T04:45:48.339+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'US_population', 'process_user', 'manual__2023-11-10T04:43:37.908025+00:00', '--job-id', '93', '--raw', '--subdir', 'DAGS_FOLDER/predictions.py', '--cfg-path', '/tmp/tmp71p452sl']
+[2023-11-10T04:45:48.342+0000] {standard_task_runner.py:83} INFO - Job 93: Subtask process_user
+[2023-11-10T04:45:48.408+0000] {task_command.py:376} INFO - Running <TaskInstance: US_population.process_user manual__2023-11-10T04:43:37.908025+00:00 [running]> on host 91f7624ceef9
+[2023-11-10T04:45:48.490+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=US_population
+AIRFLOW_CTX_TASK_ID=process_user
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-10T04:43:37.908025+00:00
+AIRFLOW_CTX_TRY_NUMBER=3
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-11-10T04:43:37.908025+00:00
+[2023-11-10T04:45:48.505+0000] {logging_mixin.py:120} INFO - Printing the user data: []
+[2023-11-10T04:45:48.505+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 193, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/predictions.py", line 33, in _process_user
+    'ID_Nation': user_list['ID Nation'],
+TypeError: list indices must be integers or slices, not str
+[2023-11-10T04:45:48.515+0000] {taskinstance.py:1406} INFO - Marking task as FAILED. dag_id=US_population, task_id=process_user, execution_date=20231110T044337, start_date=20231110T044548, end_date=20231110T044548
+[2023-11-10T04:45:48.530+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 93 for task process_user (list indices must be integers or slices, not str; 1556)
+[2023-11-10T04:45:48.550+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2023-11-10T04:45:48.580+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

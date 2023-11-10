@@ -1,0 +1,26 @@
+[2023-11-10T04:29:57.696+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: US_population.is_api_available manual__2023-11-10T04:29:55.684985+00:00 [queued]>
+[2023-11-10T04:29:57.707+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: US_population.is_api_available manual__2023-11-10T04:29:55.684985+00:00 [queued]>
+[2023-11-10T04:29:57.708+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-10T04:29:57.708+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2023-11-10T04:29:57.708+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-10T04:29:57.722+0000] {taskinstance.py:1383} INFO - Executing <Task(HttpSensor): is_api_available> on 2023-11-10 04:29:55.684985+00:00
+[2023-11-10T04:29:57.728+0000] {standard_task_runner.py:55} INFO - Started process 726 to run task
+[2023-11-10T04:29:57.733+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'US_population', 'is_api_available', 'manual__2023-11-10T04:29:55.684985+00:00', '--job-id', '65', '--raw', '--subdir', 'DAGS_FOLDER/predictions.py', '--cfg-path', '/tmp/tmpcqtkmp2p']
+[2023-11-10T04:29:57.735+0000] {standard_task_runner.py:83} INFO - Job 65: Subtask is_api_available
+[2023-11-10T04:29:57.796+0000] {task_command.py:376} INFO - Running <TaskInstance: US_population.is_api_available manual__2023-11-10T04:29:55.684985+00:00 [running]> on host 91f7624ceef9
+[2023-11-10T04:29:57.862+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=US_population
+AIRFLOW_CTX_TASK_ID=is_api_available
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-10T04:29:55.684985+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-11-10T04:29:55.684985+00:00
+[2023-11-10T04:29:57.863+0000] {http.py:120} INFO - Poking: api/
+[2023-11-10T04:29:57.873+0000] {base.py:71} INFO - Using connection ID 'us_population_API' for task execution.
+[2023-11-10T04:29:57.875+0000] {http.py:148} INFO - Sending 'GET' to url: https://datausa.io/api/data?drilldowns=Nation&measures=Population/api/
+[2023-11-10T04:29:58.972+0000] {base.py:213} INFO - Success criteria met. Exiting.
+[2023-11-10T04:29:58.987+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=US_population, task_id=is_api_available, execution_date=20231110T042955, start_date=20231110T042957, end_date=20231110T042958
+[2023-11-10T04:29:59.030+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2023-11-10T04:29:59.068+0000] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

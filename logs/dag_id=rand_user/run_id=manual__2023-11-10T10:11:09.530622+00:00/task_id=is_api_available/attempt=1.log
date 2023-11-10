@@ -1,0 +1,81 @@
+[2023-11-10T10:11:11.843+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.is_api_available manual__2023-11-10T10:11:09.530622+00:00 [queued]>
+[2023-11-10T10:11:11.861+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.is_api_available manual__2023-11-10T10:11:09.530622+00:00 [queued]>
+[2023-11-10T10:11:11.862+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-10T10:11:11.862+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2023-11-10T10:11:11.862+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-10T10:11:11.886+0000] {taskinstance.py:1383} INFO - Executing <Task(HttpSensor): is_api_available> on 2023-11-10 10:11:09.530622+00:00
+[2023-11-10T10:11:11.894+0000] {standard_task_runner.py:55} INFO - Started process 2672 to run task
+[2023-11-10T10:11:11.903+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'rand_user', 'is_api_available', 'manual__2023-11-10T10:11:09.530622+00:00', '--job-id', '144', '--raw', '--subdir', 'DAGS_FOLDER/predictions.py', '--cfg-path', '/tmp/tmplbt96grm']
+[2023-11-10T10:11:11.906+0000] {standard_task_runner.py:83} INFO - Job 144: Subtask is_api_available
+[2023-11-10T10:11:11.997+0000] {task_command.py:376} INFO - Running <TaskInstance: rand_user.is_api_available manual__2023-11-10T10:11:09.530622+00:00 [running]> on host 91f7624ceef9
+[2023-11-10T10:11:12.092+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=rand_user
+AIRFLOW_CTX_TASK_ID=is_api_available
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-10T10:11:09.530622+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-11-10T10:11:09.530622+00:00
+[2023-11-10T10:11:12.094+0000] {http.py:120} INFO - Poking: api/
+[2023-11-10T10:11:12.110+0000] {base.py:71} INFO - Using connection ID 'rand_user' for task execution.
+[2023-11-10T10:11:12.113+0000] {http.py:148} INFO - Sending 'GET' to url: https://randomuser.me/api/
+[2023-11-10T10:14:22.804+0000] {http.py:206} WARNING - HTTPSConnectionPool(host='randomuser.me', port=443): Max retries exceeded with url: /api/ (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f4513965cd0>: Failed to establish a new connection: [Errno 111] Connection refused')) Tenacity will retry to execute the operation
+[2023-11-10T10:14:22.806+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connection.py", line 175, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 710, in urlopen
+    chunked=chunked,
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connection.py", line 358, in connect
+    self.sock = conn = self._new_conn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connection.py", line 187, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f4513965cd0>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/adapters.py", line 499, in send
+    timeout=timeout,
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='randomuser.me', port=443): Max retries exceeded with url: /api/ (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f4513965cd0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/sensors/base.py", line 189, in execute
+    poke_return = self.poke(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/http/sensors/http.py", line 126, in poke
+    extra_options=self.extra_options,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/http/hooks/http.py", line 149, in run
+    return self.run_and_check(session, prepped_request, extra_options)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/http/hooks/http.py", line 207, in run_and_check
+    raise ex
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/http/hooks/http.py", line 199, in run_and_check
+    response = session.send(prepped_request, **send_kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/adapters.py", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='randomuser.me', port=443): Max retries exceeded with url: /api/ (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f4513965cd0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+[2023-11-10T10:14:22.821+0000] {taskinstance.py:1406} INFO - Marking task as UP_FOR_RETRY. dag_id=rand_user, task_id=is_api_available, execution_date=20231110T101109, start_date=20231110T101111, end_date=20231110T101422
+[2023-11-10T10:14:22.836+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 144 for task is_api_available (HTTPSConnectionPool(host='randomuser.me', port=443): Max retries exceeded with url: /api/ (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f4513965cd0>: Failed to establish a new connection: [Errno 111] Connection refused')); 2672)
+[2023-11-10T10:14:22.847+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2023-11-10T10:14:22.880+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

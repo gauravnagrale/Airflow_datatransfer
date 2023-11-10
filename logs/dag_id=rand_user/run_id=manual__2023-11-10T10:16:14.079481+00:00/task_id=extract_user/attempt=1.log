@@ -1,0 +1,26 @@
+[2023-11-10T10:16:19.656+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.extract_user manual__2023-11-10T10:16:14.079481+00:00 [queued]>
+[2023-11-10T10:16:19.677+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.extract_user manual__2023-11-10T10:16:14.079481+00:00 [queued]>
+[2023-11-10T10:16:19.678+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-10T10:16:19.679+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2023-11-10T10:16:19.679+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-10T10:16:19.709+0000] {taskinstance.py:1383} INFO - Executing <Task(SimpleHttpOperator): extract_user> on 2023-11-10 10:16:14.079481+00:00
+[2023-11-10T10:16:19.722+0000] {standard_task_runner.py:55} INFO - Started process 2922 to run task
+[2023-11-10T10:16:19.730+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'rand_user', 'extract_user', 'manual__2023-11-10T10:16:14.079481+00:00', '--job-id', '149', '--raw', '--subdir', 'DAGS_FOLDER/predictions.py', '--cfg-path', '/tmp/tmpq2l1sr7e']
+[2023-11-10T10:16:19.733+0000] {standard_task_runner.py:83} INFO - Job 149: Subtask extract_user
+[2023-11-10T10:16:19.853+0000] {task_command.py:376} INFO - Running <TaskInstance: rand_user.extract_user manual__2023-11-10T10:16:14.079481+00:00 [running]> on host 91f7624ceef9
+[2023-11-10T10:16:19.950+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=rand_user
+AIRFLOW_CTX_TASK_ID=extract_user
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-10T10:16:14.079481+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-11-10T10:16:14.079481+00:00
+[2023-11-10T10:16:19.951+0000] {http.py:121} INFO - Calling HTTP method
+[2023-11-10T10:16:19.963+0000] {base.py:71} INFO - Using connection ID 'rand_user' for task execution.
+[2023-11-10T10:16:19.966+0000] {http.py:148} INFO - Sending 'GET' to url: https://randomuser.me/api/
+[2023-11-10T10:16:20.609+0000] {http.py:125} INFO - {"results":[{"gender":"female","name":{"title":"Miss","first":"Alta Gracia","last":"Contreras"},"location":{"street":{"number":4519,"name":"Callejón Sur Estévez"},"city":"Peribán de Ramos","state":"Morelos","country":"Mexico","postcode":58993,"coordinates":{"latitude":"27.3993","longitude":"108.4626"},"timezone":{"offset":"+9:30","description":"Adelaide, Darwin"}},"email":"altagracia.contreras@example.com","login":{"uuid":"044e7398-835b-4162-b831-f05c92c8a4a8","username":"bigzebra100","password":"claude","salt":"pwTgylEF","md5":"cab70814a45ee2ebcfeaf589ecb75c04","sha1":"f472c0b09eb14f8f1af45023000097f7ec7844fb","sha256":"b762720683dad54318d2bb5b12c3a8aa5dc292f717a5faffdd90df3c484fd550"},"dob":{"date":"1965-09-18T15:34:51.100Z","age":58},"registered":{"date":"2018-06-20T01:36:54.594Z","age":5},"phone":"(617) 562 6543","cell":"(625) 348 0730","id":{"name":"NSS","value":"80 95 40 7750 4"},"picture":{"large":"https://randomuser.me/api/portraits/women/58.jpg","medium":"https://randomuser.me/api/portraits/med/women/58.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/58.jpg"},"nat":"MX"}],"info":{"seed":"0593192e26592385","results":1,"page":1,"version":"1.4"}}
+[2023-11-10T10:16:20.646+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=rand_user, task_id=extract_user, execution_date=20231110T101614, start_date=20231110T101619, end_date=20231110T101620
+[2023-11-10T10:16:20.701+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2023-11-10T10:16:20.737+0000] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

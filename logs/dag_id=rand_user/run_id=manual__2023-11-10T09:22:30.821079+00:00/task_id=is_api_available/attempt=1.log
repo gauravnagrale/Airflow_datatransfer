@@ -1,0 +1,44 @@
+[2023-11-10T09:22:35.370+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.is_api_available manual__2023-11-10T09:22:30.821079+00:00 [queued]>
+[2023-11-10T09:22:35.390+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.is_api_available manual__2023-11-10T09:22:30.821079+00:00 [queued]>
+[2023-11-10T09:22:35.391+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-10T09:22:35.392+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2023-11-10T09:22:35.392+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-10T09:22:35.417+0000] {taskinstance.py:1383} INFO - Executing <Task(HttpSensor): is_api_available> on 2023-11-10 09:22:30.821079+00:00
+[2023-11-10T09:22:35.425+0000] {standard_task_runner.py:55} INFO - Started process 2290 to run task
+[2023-11-10T09:22:35.432+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'rand_user', 'is_api_available', 'manual__2023-11-10T09:22:30.821079+00:00', '--job-id', '137', '--raw', '--subdir', 'DAGS_FOLDER/predictions.py', '--cfg-path', '/tmp/tmpca2ltec1']
+[2023-11-10T09:22:35.436+0000] {standard_task_runner.py:83} INFO - Job 137: Subtask is_api_available
+[2023-11-10T09:22:35.542+0000] {task_command.py:376} INFO - Running <TaskInstance: rand_user.is_api_available manual__2023-11-10T09:22:30.821079+00:00 [running]> on host 91f7624ceef9
+[2023-11-10T09:22:35.703+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=rand_user
+AIRFLOW_CTX_TASK_ID=is_api_available
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-10T09:22:30.821079+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-11-10T09:22:30.821079+00:00
+[2023-11-10T09:22:35.705+0000] {http.py:120} INFO - Poking: api/
+[2023-11-10T09:22:35.733+0000] {base.py:71} INFO - Using connection ID 'rand_user' for task execution.
+[2023-11-10T09:22:35.737+0000] {http.py:148} INFO - Sending 'GET' to url: https://randomuser.me/api/api/
+[2023-11-10T09:22:37.329+0000] {http.py:161} ERROR - HTTP error: Not Found
+[2023-11-10T09:22:37.330+0000] {http.py:162} ERROR - Not Found
+[2023-11-10T09:23:37.370+0000] {http.py:120} INFO - Poking: api/
+[2023-11-10T09:23:37.382+0000] {base.py:71} INFO - Using connection ID 'rand_user' for task execution.
+[2023-11-10T09:23:37.383+0000] {http.py:148} INFO - Sending 'GET' to url: https://randomuser.me/api/api/
+[2023-11-10T09:23:37.901+0000] {http.py:161} ERROR - HTTP error: Not Found
+[2023-11-10T09:23:37.901+0000] {http.py:162} ERROR - Not Found
+[2023-11-10T09:24:37.964+0000] {http.py:120} INFO - Poking: api/
+[2023-11-10T09:24:37.975+0000] {base.py:71} INFO - Using connection ID 'rand_user' for task execution.
+[2023-11-10T09:24:37.977+0000] {http.py:148} INFO - Sending 'GET' to url: https://randomuser.me/api/api/
+[2023-11-10T09:24:39.879+0000] {http.py:161} ERROR - HTTP error: Not Found
+[2023-11-10T09:24:39.880+0000] {http.py:162} ERROR - Not Found
+[2023-11-10T09:25:39.943+0000] {http.py:120} INFO - Poking: api/
+[2023-11-10T09:25:39.956+0000] {base.py:71} INFO - Using connection ID 'rand_user' for task execution.
+[2023-11-10T09:25:39.958+0000] {http.py:148} INFO - Sending 'GET' to url: https://randomuser.me/api/api/
+[2023-11-10T09:25:40.476+0000] {http.py:161} ERROR - HTTP error: Not Found
+[2023-11-10T09:25:40.478+0000] {http.py:162} ERROR - Not Found
+[2023-11-10T09:26:08.658+0000] {local_task_job.py:228} WARNING - State of this instance has been externally set to failed. Terminating instance.
+[2023-11-10T09:26:08.668+0000] {process_utils.py:133} INFO - Sending Signals.SIGTERM to group 2290. PIDs of all processes in the group: [2290]
+[2023-11-10T09:26:08.669+0000] {process_utils.py:84} INFO - Sending the signal Signals.SIGTERM to group 2290
+[2023-11-10T09:26:08.671+0000] {taskinstance.py:1562} ERROR - Received SIGTERM. Terminating subprocesses.
+[2023-11-10T09:26:08.772+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=2290, status='terminated', exitcode=0, started='09:22:35') (2290) terminated with exit code 0

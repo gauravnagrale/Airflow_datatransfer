@@ -1,0 +1,44 @@
+[2023-11-10T10:49:11.666+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.load_upload_data manual__2023-11-10T10:49:10.110832+00:00 [queued]>
+[2023-11-10T10:49:11.686+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.load_upload_data manual__2023-11-10T10:49:10.110832+00:00 [queued]>
+[2023-11-10T10:49:11.687+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-10T10:49:11.688+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2023-11-10T10:49:11.688+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-10T10:49:11.713+0000] {taskinstance.py:1383} INFO - Executing <Task(GenericTransfer): load_upload_data> on 2023-11-10 10:49:10.110832+00:00
+[2023-11-10T10:49:11.721+0000] {standard_task_runner.py:55} INFO - Started process 4567 to run task
+[2023-11-10T10:49:11.728+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'rand_user', 'load_upload_data', 'manual__2023-11-10T10:49:10.110832+00:00', '--job-id', '175', '--raw', '--subdir', 'DAGS_FOLDER/predictions.py', '--cfg-path', '/tmp/tmpgveu6qfp']
+[2023-11-10T10:49:11.731+0000] {standard_task_runner.py:83} INFO - Job 175: Subtask load_upload_data
+[2023-11-10T10:49:11.833+0000] {task_command.py:376} INFO - Running <TaskInstance: rand_user.load_upload_data manual__2023-11-10T10:49:10.110832+00:00 [running]> on host 91f7624ceef9
+[2023-11-10T10:49:11.977+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=rand_user
+AIRFLOW_CTX_TASK_ID=load_upload_data
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-10T10:49:10.110832+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-11-10T10:49:10.110832+00:00
+[2023-11-10T10:49:11.996+0000] {base.py:71} INFO - Using connection ID 'postgres' for task execution.
+[2023-11-10T10:49:12.364+0000] {base.py:71} INFO - Using connection ID 'Destination_table' for task execution.
+[2023-11-10T10:49:12.699+0000] {generic_transfer.py:76} INFO - Extracting data from postgres
+[2023-11-10T10:49:12.708+0000] {generic_transfer.py:77} INFO - Executing: 
+ select * from rand_users
+[2023-11-10T10:49:12.730+0000] {base.py:71} INFO - Using connection ID 'postgres' for task execution.
+[2023-11-10T10:49:12.746+0000] {generic_transfer.py:94} INFO - Running preoperator
+[2023-11-10T10:49:12.746+0000] {generic_transfer.py:95} INFO - TRUNCATE TABLE rand_dest_users
+[2023-11-10T10:49:12.763+0000] {base.py:71} INFO - Using connection ID 'Destination_table' for task execution.
+[2023-11-10T10:49:12.777+0000] {sql.py:315} INFO - Running statement: TRUNCATE TABLE rand_dest_users, parameters: None
+[2023-11-10T10:49:12.780+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/generic_transfer.py", line 96, in execute
+    run(self.preoperator)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 295, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 320, in _run_command
+    cur.execute(sql_statement)
+psycopg2.errors.UndefinedTable: relation "rand_dest_users" does not exist
+
+[2023-11-10T10:49:12.801+0000] {taskinstance.py:1406} INFO - Marking task as UP_FOR_RETRY. dag_id=rand_user, task_id=load_upload_data, execution_date=20231110T104910, start_date=20231110T104911, end_date=20231110T104912
+[2023-11-10T10:49:12.834+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 175 for task load_upload_data (relation "rand_dest_users" does not exist
+; 4567)
+[2023-11-10T10:49:12.863+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2023-11-10T10:49:12.925+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

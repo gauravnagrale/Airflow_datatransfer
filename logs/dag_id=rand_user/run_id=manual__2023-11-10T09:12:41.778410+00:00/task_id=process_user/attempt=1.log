@@ -1,0 +1,32 @@
+[2023-11-10T09:12:53.692+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.process_user manual__2023-11-10T09:12:41.778410+00:00 [queued]>
+[2023-11-10T09:12:53.721+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.process_user manual__2023-11-10T09:12:41.778410+00:00 [queued]>
+[2023-11-10T09:12:53.722+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-10T09:12:53.722+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2023-11-10T09:12:53.723+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-10T09:12:53.763+0000] {taskinstance.py:1383} INFO - Executing <Task(PythonOperator): process_user> on 2023-11-10 09:12:41.778410+00:00
+[2023-11-10T09:12:53.772+0000] {standard_task_runner.py:55} INFO - Started process 1830 to run task
+[2023-11-10T09:12:53.781+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'rand_user', 'process_user', 'manual__2023-11-10T09:12:41.778410+00:00', '--job-id', '124', '--raw', '--subdir', 'DAGS_FOLDER/predictions.py', '--cfg-path', '/tmp/tmpxr_td8va']
+[2023-11-10T09:12:53.786+0000] {standard_task_runner.py:83} INFO - Job 124: Subtask process_user
+[2023-11-10T09:12:53.912+0000] {task_command.py:376} INFO - Running <TaskInstance: rand_user.process_user manual__2023-11-10T09:12:41.778410+00:00 [running]> on host 91f7624ceef9
+[2023-11-10T09:12:54.055+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=rand_user
+AIRFLOW_CTX_TASK_ID=process_user
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-10T09:12:41.778410+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-11-10T09:12:41.778410+00:00
+[2023-11-10T09:12:54.076+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 193, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/predictions.py", line 14, in _process_user
+    user = user['results'][0]
+KeyError: 'results'
+[2023-11-10T09:12:54.091+0000] {taskinstance.py:1406} INFO - Marking task as UP_FOR_RETRY. dag_id=rand_user, task_id=process_user, execution_date=20231110T091241, start_date=20231110T091253, end_date=20231110T091254
+[2023-11-10T09:12:54.112+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 124 for task process_user ('results'; 1830)
+[2023-11-10T09:12:54.151+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2023-11-10T09:12:54.200+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
