@@ -1,0 +1,26 @@
+[2023-11-10T12:18:50.729+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.extract_user manual__2023-11-10T12:18:46.353024+00:00 [queued]>
+[2023-11-10T12:18:50.743+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.extract_user manual__2023-11-10T12:18:46.353024+00:00 [queued]>
+[2023-11-10T12:18:50.743+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-10T12:18:50.743+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2023-11-10T12:18:50.744+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-10T12:18:50.762+0000] {taskinstance.py:1383} INFO - Executing <Task(SimpleHttpOperator): extract_user> on 2023-11-10 12:18:46.353024+00:00
+[2023-11-10T12:18:50.768+0000] {standard_task_runner.py:55} INFO - Started process 9017 to run task
+[2023-11-10T12:18:50.773+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'rand_user', 'extract_user', 'manual__2023-11-10T12:18:46.353024+00:00', '--job-id', '289', '--raw', '--subdir', 'DAGS_FOLDER/predictions.py', '--cfg-path', '/tmp/tmpn9z34y2a']
+[2023-11-10T12:18:50.776+0000] {standard_task_runner.py:83} INFO - Job 289: Subtask extract_user
+[2023-11-10T12:18:50.855+0000] {task_command.py:376} INFO - Running <TaskInstance: rand_user.extract_user manual__2023-11-10T12:18:46.353024+00:00 [running]> on host 91f7624ceef9
+[2023-11-10T12:18:50.956+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=rand_user
+AIRFLOW_CTX_TASK_ID=extract_user
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-10T12:18:46.353024+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-11-10T12:18:46.353024+00:00
+[2023-11-10T12:18:50.957+0000] {http.py:121} INFO - Calling HTTP method
+[2023-11-10T12:18:50.974+0000] {base.py:71} INFO - Using connection ID 'rand_user' for task execution.
+[2023-11-10T12:18:50.978+0000] {http.py:148} INFO - Sending 'GET' to url: https://randomuser.me/api/
+[2023-11-10T12:18:51.694+0000] {http.py:125} INFO - {"results":[{"gender":"female","name":{"title":"Miss","first":"Madison","last":"Rogers"},"location":{"street":{"number":9785,"name":"Mockingbird Hill"},"city":"Miami","state":"Hawaii","country":"United States","postcode":50104,"coordinates":{"latitude":"87.6715","longitude":"169.1452"},"timezone":{"offset":"-3:00","description":"Brazil, Buenos Aires, Georgetown"}},"email":"madison.rogers@example.com","login":{"uuid":"ac45f883-7c76-46c5-97bb-a859b005fc83","username":"silvermouse561","password":"psycho","salt":"WCxzVwLD","md5":"7a4d94de923d9c5c7c11876d2571afd6","sha1":"19f6f73b0ccaf55456df5df0a045cc58bef96801","sha256":"c9ea092f0016bc5e8713e4f1bece5997773c6f1d685f90235b477a8595e6651f"},"dob":{"date":"1965-02-10T22:23:57.786Z","age":58},"registered":{"date":"2014-06-08T20:36:14.206Z","age":9},"phone":"(203) 975-1015","cell":"(989) 332-7055","id":{"name":"SSN","value":"348-73-3163"},"picture":{"large":"https://randomuser.me/api/portraits/women/67.jpg","medium":"https://randomuser.me/api/portraits/med/women/67.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/67.jpg"},"nat":"US"}],"info":{"seed":"e548cc70039c709e","results":1,"page":1,"version":"1.4"}}
+[2023-11-10T12:18:51.728+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=rand_user, task_id=extract_user, execution_date=20231110T121846, start_date=20231110T121850, end_date=20231110T121851
+[2023-11-10T12:18:51.787+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2023-11-10T12:18:51.818+0000] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

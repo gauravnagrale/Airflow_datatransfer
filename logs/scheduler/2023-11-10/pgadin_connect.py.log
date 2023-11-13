@@ -1,0 +1,108 @@
+[2023-11-10T11:42:45.307+0000] {processor.py:154} INFO - Started process (PID=7559) to work on /opt/airflow/dags/pgadin_connect.py
+[2023-11-10T11:42:45.309+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/pgadin_connect.py for tasks to queue
+[2023-11-10T11:42:45.312+0000] {logging_mixin.py:120} INFO - [2023-11-10T11:42:45.312+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/pgadin_connect.py
+[2023-11-10T11:42:45.751+0000] {logging_mixin.py:120} INFO - [2023-11-10T11:42:45.745+0000] {dagbag.py:342} ERROR - Failed to import: /opt/airflow/dags/pgadin_connect.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 338, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/pgadin_connect.py", line 25, in <module>
+    catchup=False
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dag.py", line 427, in __init__
+    validate_key(dag_id)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/helpers.py", line 56, in validate_key
+    f"The key {k!r} has to be made of alphanumeric characters, dashes, "
+airflow.exceptions.AirflowException: The key 'Creating the ' has to be made of alphanumeric characters, dashes, dots and underscores exclusively
+[2023-11-10T11:42:45.752+0000] {processor.py:768} WARNING - No viable dags retrieved from /opt/airflow/dags/pgadin_connect.py
+[2023-11-10T11:42:45.774+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/pgadin_connect.py took 0.475 seconds
+[2023-11-10T11:43:15.920+0000] {processor.py:154} INFO - Started process (PID=7590) to work on /opt/airflow/dags/pgadin_connect.py
+[2023-11-10T11:43:15.922+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/pgadin_connect.py for tasks to queue
+[2023-11-10T11:43:15.923+0000] {logging_mixin.py:120} INFO - [2023-11-10T11:43:15.923+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/pgadin_connect.py
+[2023-11-10T11:43:16.218+0000] {logging_mixin.py:120} INFO - [2023-11-10T11:43:16.215+0000] {dagbag.py:342} ERROR - Failed to import: /opt/airflow/dags/pgadin_connect.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 338, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/pgadin_connect.py", line 25, in <module>
+    catchup=False
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dag.py", line 427, in __init__
+    validate_key(dag_id)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/helpers.py", line 56, in validate_key
+    f"The key {k!r} has to be made of alphanumeric characters, dashes, "
+airflow.exceptions.AirflowException: The key 'Creating the ' has to be made of alphanumeric characters, dashes, dots and underscores exclusively
+[2023-11-10T11:43:16.219+0000] {processor.py:768} WARNING - No viable dags retrieved from /opt/airflow/dags/pgadin_connect.py
+[2023-11-10T11:43:16.249+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/pgadin_connect.py took 0.332 seconds
+[2023-11-10T11:43:47.063+0000] {processor.py:154} INFO - Started process (PID=7612) to work on /opt/airflow/dags/pgadin_connect.py
+[2023-11-10T11:43:47.064+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/pgadin_connect.py for tasks to queue
+[2023-11-10T11:43:47.066+0000] {logging_mixin.py:120} INFO - [2023-11-10T11:43:47.066+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/pgadin_connect.py
+[2023-11-10T11:43:47.641+0000] {logging_mixin.py:120} INFO - [2023-11-10T11:43:47.636+0000] {dagbag.py:342} ERROR - Failed to import: /opt/airflow/dags/pgadin_connect.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 338, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/pgadin_connect.py", line 25, in <module>
+    catchup=False
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dag.py", line 427, in __init__
+    validate_key(dag_id)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/helpers.py", line 56, in validate_key
+    f"The key {k!r} has to be made of alphanumeric characters, dashes, "
+airflow.exceptions.AirflowException: The key 'Creating the ' has to be made of alphanumeric characters, dashes, dots and underscores exclusively
+[2023-11-10T11:43:47.642+0000] {processor.py:768} WARNING - No viable dags retrieved from /opt/airflow/dags/pgadin_connect.py
+[2023-11-10T11:43:47.678+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/pgadin_connect.py took 0.621 seconds
+[2023-11-10T11:44:17.828+0000] {processor.py:154} INFO - Started process (PID=7643) to work on /opt/airflow/dags/pgadin_connect.py
+[2023-11-10T11:44:17.829+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/pgadin_connect.py for tasks to queue
+[2023-11-10T11:44:17.830+0000] {logging_mixin.py:120} INFO - [2023-11-10T11:44:17.830+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/pgadin_connect.py
+[2023-11-10T11:44:18.113+0000] {logging_mixin.py:120} INFO - [2023-11-10T11:44:18.110+0000] {dagbag.py:342} ERROR - Failed to import: /opt/airflow/dags/pgadin_connect.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 338, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/pgadin_connect.py", line 25, in <module>
+    catchup=False
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dag.py", line 427, in __init__
+    validate_key(dag_id)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/helpers.py", line 56, in validate_key
+    f"The key {k!r} has to be made of alphanumeric characters, dashes, "
+airflow.exceptions.AirflowException: The key 'Creating the ' has to be made of alphanumeric characters, dashes, dots and underscores exclusively
+[2023-11-10T11:44:18.114+0000] {processor.py:768} WARNING - No viable dags retrieved from /opt/airflow/dags/pgadin_connect.py
+[2023-11-10T11:44:18.132+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/pgadin_connect.py took 0.309 seconds
+[2023-11-10T11:44:48.264+0000] {processor.py:154} INFO - Started process (PID=7674) to work on /opt/airflow/dags/pgadin_connect.py
+[2023-11-10T11:44:48.266+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/pgadin_connect.py for tasks to queue
+[2023-11-10T11:44:48.267+0000] {logging_mixin.py:120} INFO - [2023-11-10T11:44:48.267+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/pgadin_connect.py
+[2023-11-10T11:44:48.651+0000] {logging_mixin.py:120} INFO - [2023-11-10T11:44:48.646+0000] {dagbag.py:342} ERROR - Failed to import: /opt/airflow/dags/pgadin_connect.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 338, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/pgadin_connect.py", line 25, in <module>
+    catchup=False
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dag.py", line 427, in __init__
+    validate_key(dag_id)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/helpers.py", line 56, in validate_key
+    f"The key {k!r} has to be made of alphanumeric characters, dashes, "
+airflow.exceptions.AirflowException: The key 'Creating the ' has to be made of alphanumeric characters, dashes, dots and underscores exclusively
+[2023-11-10T11:44:48.652+0000] {processor.py:768} WARNING - No viable dags retrieved from /opt/airflow/dags/pgadin_connect.py
+[2023-11-10T11:44:48.687+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/pgadin_connect.py took 0.427 seconds
+[2023-11-10T11:45:18.844+0000] {processor.py:154} INFO - Started process (PID=7696) to work on /opt/airflow/dags/pgadin_connect.py
+[2023-11-10T11:45:18.846+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/pgadin_connect.py for tasks to queue
+[2023-11-10T11:45:18.848+0000] {logging_mixin.py:120} INFO - [2023-11-10T11:45:18.848+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/pgadin_connect.py
+[2023-11-10T11:45:19.480+0000] {logging_mixin.py:120} INFO - [2023-11-10T11:45:19.475+0000] {dagbag.py:342} ERROR - Failed to import: /opt/airflow/dags/pgadin_connect.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 338, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/pgadin_connect.py", line 25, in <module>
+    catchup=False
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dag.py", line 427, in __init__
+    validate_key(dag_id)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/helpers.py", line 56, in validate_key
+    f"The key {k!r} has to be made of alphanumeric characters, dashes, "
+airflow.exceptions.AirflowException: The key 'Creating the ' has to be made of alphanumeric characters, dashes, dots and underscores exclusively
+[2023-11-10T11:45:19.481+0000] {processor.py:768} WARNING - No viable dags retrieved from /opt/airflow/dags/pgadin_connect.py
+[2023-11-10T11:45:19.535+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/pgadin_connect.py took 0.696 seconds

@@ -55,10 +55,10 @@ with DAG(
     schedule_interval='@daily',
     catchup=False
 ) as dag:
-    #Creating the table
+    #Creating the source table
     create_table = PostgresOperator(
         task_id="Create_table",
-        postgres_conn_id='postgres',
+        postgres_conn_id='source_db_aiimsnew',
         sql='''
         CREATE TABLE IF NOT EXISTS rand_users (
         gender TEXT NOT NULL,
@@ -74,9 +74,10 @@ with DAG(
         '''
     )
 
+    #Creating the Destination table for the storing user data
     create_dest_table = PostgresOperator(
         task_id = "destinatin_table",
-        postgres_conn_id = "Destination_table",
+        postgres_conn_id = "pgadmin_connection",
         sql = '''
         CREATE TABLE IF NOT EXISTS rand_dest_users (
         gender TEXT NOT NULL,
@@ -87,7 +88,8 @@ with DAG(
         username TEXT NOT NULL,
         password TEXT NOT NULL,
         email TEXT NOT NULL,
-        age TEXT NOT NULL)
+        age TEXT NOT NULL
+        )
         '''
     )
 
@@ -122,15 +124,28 @@ with DAG(
         python_callable=_store_user
     )
 
-    upload_data = GenericTransfer(
-                        task_id='load_upload_data' ,
+    # GenericTransfer task to upload data into the source table
+    upload_data_source = GenericTransfer(
+        task_id='upload_data_source',
+        sql="SELECT * FROM rand_users",
+        destination_table="rand_users",
+        source_conn_id="postgres",
+        destination_conn_id="source_db_aiimsnew",
+        preoperator="TRUNCATE TABLE rand_users" ,#this ensures that # this line is for removing the data from the the destination table before pushing the new data
+        dag=dag
+    )
+
+
+    # GenericTransfer task to upload data into the destination table
+    upload_data_destination = GenericTransfer(
+                        task_id='upload_data_Destination' ,
                         sql="select * from rand_users",
                         destination_table ="rand_dest_users"  ,
-                        source_conn_id="postgres"  ,
-                        destination_conn_id="Destination_table" ,
-                        #preoperator="TRUNCATE TABLE rand_dest_users" ,#this ensures that 
+                        source_conn_id="source_db_aiimsnew"  ,
+                        destination_conn_id="pgadmin_connection" ,
+                        #preoperator="TRUNCATE TABLE rand_dest_users" ,#this ensures that # this line is for removing the data from the the destination table before pushing the new data
                         dag=dag
-
                     )
+# dump the data into the source table
 
-create_table>>is_api_available>>extract_user>>process_user>>store_user>>create_dest_table>>upload_data
+create_table>>is_api_available>>extract_user>>process_user>>store_user>>create_dest_table>>upload_data_source>>upload_data_destination

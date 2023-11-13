@@ -1,0 +1,31 @@
+[2023-11-13T09:57:25.781+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.upload_data_source manual__2023-11-13T09:57:24.332327+00:00 [queued]>
+[2023-11-13T09:57:25.793+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.upload_data_source manual__2023-11-13T09:57:24.332327+00:00 [queued]>
+[2023-11-13T09:57:25.794+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-13T09:57:25.794+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2023-11-13T09:57:25.794+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-13T09:57:25.809+0000] {taskinstance.py:1383} INFO - Executing <Task(GenericTransfer): upload_data_source> on 2023-11-13 09:57:24.332327+00:00
+[2023-11-13T09:57:25.815+0000] {standard_task_runner.py:55} INFO - Started process 671 to run task
+[2023-11-13T09:57:25.820+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'rand_user', 'upload_data_source', 'manual__2023-11-13T09:57:24.332327+00:00', '--job-id', '350', '--raw', '--subdir', 'DAGS_FOLDER/predictions.py', '--cfg-path', '/tmp/tmppmrz3wb5']
+[2023-11-13T09:57:25.822+0000] {standard_task_runner.py:83} INFO - Job 350: Subtask upload_data_source
+[2023-11-13T09:57:25.894+0000] {task_command.py:376} INFO - Running <TaskInstance: rand_user.upload_data_source manual__2023-11-13T09:57:24.332327+00:00 [running]> on host 91f7624ceef9
+[2023-11-13T09:57:25.965+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=rand_user
+AIRFLOW_CTX_TASK_ID=upload_data_source
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-13T09:57:24.332327+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-11-13T09:57:24.332327+00:00
+[2023-11-13T09:57:25.976+0000] {base.py:71} INFO - Using connection ID 'postgres' for task execution.
+[2023-11-13T09:57:26.244+0000] {base.py:71} INFO - Using connection ID 'source_db_***' for task execution.
+[2023-11-13T09:57:26.578+0000] {generic_transfer.py:76} INFO - Extracting data from postgres
+[2023-11-13T09:57:26.578+0000] {generic_transfer.py:77} INFO - Executing: 
+ SELECT * FROM rand_users
+[2023-11-13T09:57:26.588+0000] {base.py:71} INFO - Using connection ID 'postgres' for task execution.
+[2023-11-13T09:57:26.594+0000] {generic_transfer.py:104} INFO - Inserting rows into source_db_***
+[2023-11-13T09:57:26.603+0000] {base.py:71} INFO - Using connection ID 'source_db_***' for task execution.
+[2023-11-13T09:57:26.642+0000] {sql.py:415} INFO - Done loading. Loaded a total of 20 rows
+[2023-11-13T09:57:26.658+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=rand_user, task_id=upload_data_source, execution_date=20231113T095724, start_date=20231113T095725, end_date=20231113T095726
+[2023-11-13T09:57:26.712+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2023-11-13T09:57:26.743+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

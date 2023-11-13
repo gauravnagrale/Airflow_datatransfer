@@ -1,0 +1,46 @@
+[2023-11-10T11:45:43.767+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.load_upload_data manual__2023-11-10T11:45:33.049863+00:00 [queued]>
+[2023-11-10T11:45:43.777+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.load_upload_data manual__2023-11-10T11:45:33.049863+00:00 [queued]>
+[2023-11-10T11:45:43.778+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-10T11:45:43.778+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2023-11-10T11:45:43.779+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-10T11:45:43.793+0000] {taskinstance.py:1383} INFO - Executing <Task(GenericTransfer): load_upload_data> on 2023-11-10 11:45:33.049863+00:00
+[2023-11-10T11:45:43.799+0000] {standard_task_runner.py:55} INFO - Started process 7387 to run task
+[2023-11-10T11:45:43.804+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'rand_user', 'load_upload_data', 'manual__2023-11-10T11:45:33.049863+00:00', '--job-id', '254', '--raw', '--subdir', 'DAGS_FOLDER/predictions.py', '--cfg-path', '/tmp/tmpmdl18ldf']
+[2023-11-10T11:45:43.806+0000] {standard_task_runner.py:83} INFO - Job 254: Subtask load_upload_data
+[2023-11-10T11:45:43.872+0000] {task_command.py:376} INFO - Running <TaskInstance: rand_user.load_upload_data manual__2023-11-10T11:45:33.049863+00:00 [running]> on host 91f7624ceef9
+[2023-11-10T11:45:43.943+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=rand_user
+AIRFLOW_CTX_TASK_ID=load_upload_data
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-10T11:45:33.049863+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-11-10T11:45:33.049863+00:00
+[2023-11-10T11:45:43.956+0000] {base.py:71} INFO - Using connection ID 'postgres' for task execution.
+[2023-11-10T11:45:44.215+0000] {base.py:71} INFO - Using connection ID 'Destination_table' for task execution.
+[2023-11-10T11:45:44.436+0000] {generic_transfer.py:76} INFO - Extracting data from postgres
+[2023-11-10T11:45:44.437+0000] {generic_transfer.py:77} INFO - Executing: 
+ select * from rand_users
+[2023-11-10T11:45:44.446+0000] {base.py:71} INFO - Using connection ID 'postgres' for task execution.
+[2023-11-10T11:45:44.453+0000] {generic_transfer.py:104} INFO - Inserting rows into Destination_table
+[2023-11-10T11:45:44.464+0000] {base.py:71} INFO - Using connection ID 'Destination_table' for task execution.
+[2023-11-10T11:45:44.466+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/generic_transfer.py", line 105, in execute
+    insert_rows(table=self.destination_table, rows=results, **self.insert_args)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 395, in insert_rows
+    with closing(self.get_conn()) as conn:
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/postgres/hooks/postgres.py", line 115, in get_conn
+    self.conn = psycopg2.connect(**conn_args)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "postgres" (172.23.0.4), port 5445 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2023-11-10T11:45:44.479+0000] {taskinstance.py:1406} INFO - Marking task as UP_FOR_RETRY. dag_id=rand_user, task_id=load_upload_data, execution_date=20231110T114533, start_date=20231110T114543, end_date=20231110T114544
+[2023-11-10T11:45:44.509+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 254 for task load_upload_data (connection to server at "postgres" (172.23.0.4), port 5445 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+; 7387)
+[2023-11-10T11:45:44.536+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2023-11-10T11:45:44.567+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
