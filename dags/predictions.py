@@ -29,8 +29,7 @@ def _process_user(ti):
     processed_user.to_csv('/tmp/processed_user.csv', index=None, header=False)
 
 
-
-#is this function we have defined where we have stored user details
+# PostgresHook is used to interact with the PostgreSQL database
 def _store_user():
     #postgres hook is used to communicate with the external data source 
     hook = PostgresHook(postgres_conn_id='postgres')
