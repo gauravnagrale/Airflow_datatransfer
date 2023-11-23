@@ -1,0 +1,26 @@
+[2023-11-23T05:48:09.302+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Data_transfer.extract_user scheduled__2023-11-23T05:18:04.853042+00:00 [queued]>
+[2023-11-23T05:48:09.315+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Data_transfer.extract_user scheduled__2023-11-23T05:18:04.853042+00:00 [queued]>
+[2023-11-23T05:48:09.316+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-23T05:48:09.316+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2023-11-23T05:48:09.316+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-23T05:48:09.331+0000] {taskinstance.py:1383} INFO - Executing <Task(SimpleHttpOperator): extract_user> on 2023-11-23 05:18:04.853042+00:00
+[2023-11-23T05:48:09.337+0000] {standard_task_runner.py:55} INFO - Started process 4892 to run task
+[2023-11-23T05:48:09.343+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Data_transfer', 'extract_user', 'scheduled__2023-11-23T05:18:04.853042+00:00', '--job-id', '421', '--raw', '--subdir', 'DAGS_FOLDER/data_transfer.py', '--cfg-path', '/tmp/tmp583vo52c']
+[2023-11-23T05:48:09.346+0000] {standard_task_runner.py:83} INFO - Job 421: Subtask extract_user
+[2023-11-23T05:48:09.425+0000] {task_command.py:376} INFO - Running <TaskInstance: Data_transfer.extract_user scheduled__2023-11-23T05:18:04.853042+00:00 [running]> on host f71f95879a41
+[2023-11-23T05:48:09.514+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=Data_transfer
+AIRFLOW_CTX_TASK_ID=extract_user
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-23T05:18:04.853042+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-11-23T05:18:04.853042+00:00
+[2023-11-23T05:48:09.515+0000] {http.py:121} INFO - Calling HTTP method
+[2023-11-23T05:48:09.527+0000] {base.py:71} INFO - Using connection ID 'rand_user_api' for task execution.
+[2023-11-23T05:48:09.529+0000] {http.py:148} INFO - Sending 'GET' to url: https://randomuser.me/api/
+[2023-11-23T05:48:10.058+0000] {http.py:125} INFO - {"results":[{"gender":"female","name":{"title":"Ms","first":"Marie","last":"Møller"},"location":{"street":{"number":607,"name":"Agnetevej"},"city":"Nørrebro","state":"Nordjylland","country":"Denmark","postcode":86351,"coordinates":{"latitude":"-44.2075","longitude":"37.9621"},"timezone":{"offset":"-3:30","description":"Newfoundland"}},"email":"marie.moller@example.com","login":{"uuid":"a9c5009a-d20e-421d-9e62-cbc623d36551","username":"blackrabbit743","password":"gromit","salt":"kd4leZL5","md5":"127e18bf57375b433dc0082f5405b59b","sha1":"9f1e5b47c4feb2f41df0e4f5582262375dfb224c","sha256":"3da43fedb607af4fbbfd543c18e8a3d96041ebac11ddbba0d2b92e301e441450"},"dob":{"date":"1989-01-22T22:35:34.068Z","age":34},"registered":{"date":"2010-06-20T23:20:12.568Z","age":13},"phone":"28243301","cell":"90440871","id":{"name":"CPR","value":"220189-7777"},"picture":{"large":"https://randomuser.me/api/portraits/women/16.jpg","medium":"https://randomuser.me/api/portraits/med/women/16.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/16.jpg"},"nat":"DK"}],"info":{"seed":"5b375a2653dd4219","results":1,"page":1,"version":"1.4"}}
+[2023-11-23T05:48:10.089+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=Data_transfer, task_id=extract_user, execution_date=20231123T051804, start_date=20231123T054809, end_date=20231123T054810
+[2023-11-23T05:48:10.115+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2023-11-23T05:48:10.158+0000] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,48 @@
+[2023-11-23T05:51:55.111+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.upload_data_to_destination scheduled__2023-11-23T05:21:44.704309+00:00 [queued]>
+[2023-11-23T05:51:55.121+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.upload_data_to_destination scheduled__2023-11-23T05:21:44.704309+00:00 [queued]>
+[2023-11-23T05:51:55.122+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-23T05:51:55.122+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2023-11-23T05:51:55.122+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-23T05:51:55.142+0000] {taskinstance.py:1383} INFO - Executing <Task(GenericTransfer): upload_data_to_destination> on 2023-11-23 05:21:44.704309+00:00
+[2023-11-23T05:51:55.148+0000] {standard_task_runner.py:55} INFO - Started process 5138 to run task
+[2023-11-23T05:51:55.153+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'rand_user', 'upload_data_to_destination', 'scheduled__2023-11-23T05:21:44.704309+00:00', '--job-id', '443', '--raw', '--subdir', 'DAGS_FOLDER/predictions.py', '--cfg-path', '/tmp/tmpy8oi5jh3']
+[2023-11-23T05:51:55.155+0000] {standard_task_runner.py:83} INFO - Job 443: Subtask upload_data_to_destination
+[2023-11-23T05:51:55.221+0000] {task_command.py:376} INFO - Running <TaskInstance: rand_user.upload_data_to_destination scheduled__2023-11-23T05:21:44.704309+00:00 [running]> on host f71f95879a41
+[2023-11-23T05:51:55.294+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=rand_user
+AIRFLOW_CTX_TASK_ID=upload_data_to_destination
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-23T05:21:44.704309+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-11-23T05:21:44.704309+00:00
+[2023-11-23T05:51:55.303+0000] {base.py:71} INFO - Using connection ID 'source_db_***' for task execution.
+[2023-11-23T05:51:55.508+0000] {base.py:71} INFO - Using connection ID 'dest_conn_id' for task execution.
+[2023-11-23T05:51:55.688+0000] {generic_transfer.py:76} INFO - Extracting data from source_db_***
+[2023-11-23T05:51:55.688+0000] {generic_transfer.py:77} INFO - Executing: 
+ 
+            INSERT INTO rand_dest_users
+            SELECT DISTINCT ON (ru.uuid) ru.*
+            FROM rand_users ru
+            LEFT JOIN rand_dest_users rdu ON ru.uuid = rdu.uuid
+            WHERE rdu.uuid IS NULL
+            
+[2023-11-23T05:51:55.696+0000] {base.py:71} INFO - Using connection ID 'source_db_***' for task execution.
+[2023-11-23T05:51:55.710+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/generic_transfer.py", line 85, in execute
+    results = get_records(self.sql)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 217, in get_records
+    cur.execute(sql)
+psycopg2.errors.UndefinedTable: relation "rand_dest_users" does not exist
+LINE 2:             INSERT INTO rand_dest_users
+                                ^
+
+[2023-11-23T05:51:55.719+0000] {taskinstance.py:1406} INFO - Marking task as UP_FOR_RETRY. dag_id=rand_user, task_id=upload_data_to_destination, execution_date=20231123T052144, start_date=20231123T055155, end_date=20231123T055155
+[2023-11-23T05:51:55.745+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 443 for task upload_data_to_destination (relation "rand_dest_users" does not exist
+LINE 2:             INSERT INTO rand_dest_users
+                                ^
+; 5138)
+[2023-11-23T05:51:55.806+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2023-11-23T05:51:55.876+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

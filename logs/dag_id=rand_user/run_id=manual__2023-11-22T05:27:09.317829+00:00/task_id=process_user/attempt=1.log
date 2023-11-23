@@ -1,0 +1,27 @@
+[2023-11-22T05:27:18.539+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.process_user manual__2023-11-22T05:27:09.317829+00:00 [queued]>
+[2023-11-22T05:27:18.559+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.process_user manual__2023-11-22T05:27:09.317829+00:00 [queued]>
+[2023-11-22T05:27:18.559+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-22T05:27:18.560+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2023-11-22T05:27:18.561+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-22T05:27:18.588+0000] {taskinstance.py:1383} INFO - Executing <Task(PythonOperator): process_user> on 2023-11-22 05:27:09.317829+00:00
+[2023-11-22T05:27:18.598+0000] {standard_task_runner.py:55} INFO - Started process 5352 to run task
+[2023-11-22T05:27:18.608+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'rand_user', 'process_user', 'manual__2023-11-22T05:27:09.317829+00:00', '--job-id', '666', '--raw', '--subdir', 'DAGS_FOLDER/predictions.py', '--cfg-path', '/tmp/tmpzhhry82d']
+[2023-11-22T05:27:18.611+0000] {standard_task_runner.py:83} INFO - Job 666: Subtask process_user
+[2023-11-22T05:27:18.721+0000] {task_command.py:376} INFO - Running <TaskInstance: rand_user.process_user manual__2023-11-22T05:27:09.317829+00:00 [running]> on host 91f7624ceef9
+[2023-11-22T05:27:18.854+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=rand_user
+AIRFLOW_CTX_TASK_ID=process_user
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-22T05:27:09.317829+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-11-22T05:27:09.317829+00:00
+[2023-11-22T05:27:18.906+0000] {logging_mixin.py:120} INFO - Printing the DataFrame:                                    uuid title  ...                  email age
+0  bd93c0e7-b085-4f7f-8646-e74128ef77e5    Mr  ...  omar.soto@example.com  53
+
+[1 rows x 10 columns]
+[2023-11-22T05:27:18.912+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-11-22T05:27:18.930+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=rand_user, task_id=process_user, execution_date=20231122T052709, start_date=20231122T052718, end_date=20231122T052718
+[2023-11-22T05:27:18.977+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2023-11-22T05:27:19.031+0000] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,38 @@
+[2023-11-22T06:00:02.584+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.Create_table manual__2023-11-22T06:00:01.187091+00:00 [queued]>
+[2023-11-22T06:00:02.607+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.Create_table manual__2023-11-22T06:00:01.187091+00:00 [queued]>
+[2023-11-22T06:00:02.608+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-22T06:00:02.609+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2023-11-22T06:00:02.609+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-22T06:00:02.657+0000] {taskinstance.py:1383} INFO - Executing <Task(PostgresOperator): Create_table> on 2023-11-22 06:00:01.187091+00:00
+[2023-11-22T06:00:02.670+0000] {standard_task_runner.py:55} INFO - Started process 6996 to run task
+[2023-11-22T06:00:02.679+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'rand_user', 'Create_table', 'manual__2023-11-22T06:00:01.187091+00:00', '--job-id', '772', '--raw', '--subdir', 'DAGS_FOLDER/predictions.py', '--cfg-path', '/tmp/tmpt0hsnwzg']
+[2023-11-22T06:00:02.682+0000] {standard_task_runner.py:83} INFO - Job 772: Subtask Create_table
+[2023-11-22T06:00:02.834+0000] {task_command.py:376} INFO - Running <TaskInstance: rand_user.Create_table manual__2023-11-22T06:00:01.187091+00:00 [running]> on host 91f7624ceef9
+[2023-11-22T06:00:02.972+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=rand_user
+AIRFLOW_CTX_TASK_ID=Create_table
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-22T06:00:01.187091+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-11-22T06:00:01.187091+00:00
+[2023-11-22T06:00:02.995+0000] {base.py:71} INFO - Using connection ID 'source_db_***' for task execution.
+[2023-11-22T06:00:03.211+0000] {sql.py:315} INFO - Running statement: 
+        CREATE TABLE IF NOT EXISTS rand_users (
+        gender TEXT NOT NULL,
+        title TEXT NOT NULL,
+        firstname TEXT NOT NULL,
+        lastname TEXT NOT NULL,
+        country TEXT NOT NULL,
+        username TEXT NOT NULL,
+        password TEXT NOT NULL,
+        email TEXT NOT NULL,
+        age TEXT NOT NULL
+        )
+        , parameters: None
+[2023-11-22T06:00:03.215+0000] {postgres.py:96} INFO - NOTICE:  relation "rand_users" already exists, skipping
+
+[2023-11-22T06:00:03.240+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=rand_user, task_id=Create_table, execution_date=20231122T060001, start_date=20231122T060002, end_date=20231122T060003
+[2023-11-22T06:00:03.331+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2023-11-22T06:00:03.398+0000] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

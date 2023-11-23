@@ -1,0 +1,24 @@
+[2023-11-23T06:32:55.147+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.process_user manual__2023-11-23T06:32:47.670435+00:00 [queued]>
+[2023-11-23T06:32:55.164+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.process_user manual__2023-11-23T06:32:47.670435+00:00 [queued]>
+[2023-11-23T06:32:55.165+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-23T06:32:55.165+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2023-11-23T06:32:55.166+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-23T06:32:55.186+0000] {taskinstance.py:1383} INFO - Executing <Task(PythonOperator): process_user> on 2023-11-23 06:32:47.670435+00:00
+[2023-11-23T06:32:55.195+0000] {standard_task_runner.py:55} INFO - Started process 7215 to run task
+[2023-11-23T06:32:55.200+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'rand_user', 'process_user', 'manual__2023-11-23T06:32:47.670435+00:00', '--job-id', '493', '--raw', '--subdir', 'DAGS_FOLDER/predictions.py', '--cfg-path', '/tmp/tmpwyiin4l5']
+[2023-11-23T06:32:55.202+0000] {standard_task_runner.py:83} INFO - Job 493: Subtask process_user
+[2023-11-23T06:32:55.274+0000] {task_command.py:376} INFO - Running <TaskInstance: rand_user.process_user manual__2023-11-23T06:32:47.670435+00:00 [running]> on host f71f95879a41
+[2023-11-23T06:32:55.351+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=rand_user
+AIRFLOW_CTX_TASK_ID=process_user
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-23T06:32:47.670435+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-11-23T06:32:47.670435+00:00
+[2023-11-23T06:32:55.365+0000] {logging_mixin.py:120} INFO - printing the user-data {'results': [{'gender': 'male', 'name': {'title': 'Mr', 'first': 'Tadija', 'last': 'Santrač'}, 'location': {'street': {'number': 2984, 'name': 'Miloja Stojanovića '}, 'city': 'Bački Petrovac', 'state': 'Zaječar', 'country': 'Serbia', 'postcode': 25722, 'coordinates': {'latitude': '58.5894', 'longitude': '-141.5616'}, 'timezone': {'offset': '-2:00', 'description': 'Mid-Atlantic'}}, 'email': 'tadija.santrac@example.com', 'login': {'uuid': 'ca6481f2-d01f-48e6-a4a1-5e07b4606b95', 'username': 'redbutterfly399', 'password': 'dandan', 'salt': '1ae0H4z6', 'md5': 'c01c3a157abc3f22692391b628371cf2', 'sha1': '218c9ced7e55c602d322499df809658ed58706a9', 'sha256': '5457c0c255bdb76690eabe9ee7f8ab2fbbde42b36e20f6fb9c0f7f0637e47551'}, 'dob': {'date': '1996-06-27T11:30:33.230Z', 'age': 27}, 'registered': {'date': '2002-12-26T18:54:45.513Z', 'age': 20}, 'phone': '032-4047-532', 'cell': '069-6414-223', 'id': {'name': 'SID', 'value': '662845445'}, 'picture': {'large': 'https://randomuser.me/api/portraits/men/45.jpg', 'medium': 'https://randomuser.me/api/portraits/med/men/45.jpg', 'thumbnail': 'https://randomuser.me/api/portraits/thumb/men/45.jpg'}, 'nat': 'RS'}], 'info': {'seed': '7019ab1b73520910', 'results': 1, 'page': 1, 'version': '1.4'}}
+[2023-11-23T06:32:55.372+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-11-23T06:32:55.383+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=rand_user, task_id=process_user, execution_date=20231123T063247, start_date=20231123T063255, end_date=20231123T063255
+[2023-11-23T06:32:55.410+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2023-11-23T06:32:55.444+0000] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

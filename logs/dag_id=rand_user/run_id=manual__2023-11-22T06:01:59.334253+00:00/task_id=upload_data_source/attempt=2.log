@@ -1,0 +1,46 @@
+[2023-11-22T06:03:19.687+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.upload_data_source manual__2023-11-22T06:01:59.334253+00:00 [queued]>
+[2023-11-22T06:03:19.713+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.upload_data_source manual__2023-11-22T06:01:59.334253+00:00 [queued]>
+[2023-11-22T06:03:19.714+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-22T06:03:19.714+0000] {taskinstance.py:1363} INFO - Starting attempt 2 of 3
+[2023-11-22T06:03:19.715+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-22T06:03:19.746+0000] {taskinstance.py:1383} INFO - Executing <Task(GenericTransfer): upload_data_source> on 2023-11-22 06:01:59.334253+00:00
+[2023-11-22T06:03:19.759+0000] {standard_task_runner.py:55} INFO - Started process 7209 to run task
+[2023-11-22T06:03:19.767+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'rand_user', 'upload_data_source', 'manual__2023-11-22T06:01:59.334253+00:00', '--job-id', '795', '--raw', '--subdir', 'DAGS_FOLDER/predictions.py', '--cfg-path', '/tmp/tmp549wj6h9']
+[2023-11-22T06:03:19.770+0000] {standard_task_runner.py:83} INFO - Job 795: Subtask upload_data_source
+[2023-11-22T06:03:19.900+0000] {task_command.py:376} INFO - Running <TaskInstance: rand_user.upload_data_source manual__2023-11-22T06:01:59.334253+00:00 [running]> on host 91f7624ceef9
+[2023-11-22T06:03:20.031+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=rand_user
+AIRFLOW_CTX_TASK_ID=upload_data_source
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-22T06:01:59.334253+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-11-22T06:01:59.334253+00:00
+[2023-11-22T06:03:20.049+0000] {base.py:71} INFO - Using connection ID 'postgres' for task execution.
+[2023-11-22T06:03:20.428+0000] {base.py:71} INFO - Using connection ID 'source_db_***' for task execution.
+[2023-11-22T06:03:20.748+0000] {generic_transfer.py:76} INFO - Extracting data from postgres
+[2023-11-22T06:03:20.748+0000] {generic_transfer.py:77} INFO - Executing: 
+ SELECT * FROM rand_users
+[2023-11-22T06:03:20.759+0000] {base.py:71} INFO - Using connection ID 'postgres' for task execution.
+[2023-11-22T06:03:20.767+0000] {generic_transfer.py:94} INFO - Running preoperator
+[2023-11-22T06:03:20.768+0000] {generic_transfer.py:95} INFO - TRUNCATE TABLE rand_users
+[2023-11-22T06:03:20.779+0000] {base.py:71} INFO - Using connection ID 'source_db_***' for task execution.
+[2023-11-22T06:03:20.788+0000] {sql.py:315} INFO - Running statement: TRUNCATE TABLE rand_users, parameters: None
+[2023-11-22T06:03:20.803+0000] {generic_transfer.py:104} INFO - Inserting rows into source_db_***
+[2023-11-22T06:03:20.814+0000] {base.py:71} INFO - Using connection ID 'source_db_***' for task execution.
+[2023-11-22T06:03:20.825+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/generic_transfer.py", line 105, in execute
+    insert_rows(table=self.destination_table, rows=results, **self.insert_args)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 409, in insert_rows
+    cur.execute(sql, values)
+psycopg2.errors.NotNullViolation: null value in column "age" violates not-null constraint
+DETAIL:  Failing row contains (male, Mr, Vincent, Ross, Canada, whiteelephant503, peter, vincent.ross@example.com, 38, null).
+
+[2023-11-22T06:03:20.840+0000] {taskinstance.py:1406} INFO - Marking task as UP_FOR_RETRY. dag_id=rand_user, task_id=upload_data_source, execution_date=20231122T060159, start_date=20231122T060319, end_date=20231122T060320
+[2023-11-22T06:03:20.875+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 795 for task upload_data_source (null value in column "age" violates not-null constraint
+DETAIL:  Failing row contains (male, Mr, Vincent, Ross, Canada, whiteelephant503, peter, vincent.ross@example.com, 38, null).
+; 7209)
+[2023-11-22T06:03:20.900+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2023-11-22T06:03:20.956+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

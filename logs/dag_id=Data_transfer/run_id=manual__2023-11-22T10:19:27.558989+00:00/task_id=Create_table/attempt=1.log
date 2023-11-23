@@ -1,0 +1,39 @@
+[2023-11-22T10:19:28.898+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Data_transfer.Create_table manual__2023-11-22T10:19:27.558989+00:00 [queued]>
+[2023-11-22T10:19:28.920+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Data_transfer.Create_table manual__2023-11-22T10:19:27.558989+00:00 [queued]>
+[2023-11-22T10:19:28.921+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-22T10:19:28.921+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2023-11-22T10:19:28.922+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-22T10:19:28.948+0000] {taskinstance.py:1383} INFO - Executing <Task(PostgresOperator): Create_table> on 2023-11-22 10:19:27.558989+00:00
+[2023-11-22T10:19:28.958+0000] {standard_task_runner.py:55} INFO - Started process 6882 to run task
+[2023-11-22T10:19:28.965+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Data_transfer', 'Create_table', 'manual__2023-11-22T10:19:27.558989+00:00', '--job-id', '182', '--raw', '--subdir', 'DAGS_FOLDER/data_transfer.py', '--cfg-path', '/tmp/tmp214mnl10']
+[2023-11-22T10:19:28.968+0000] {standard_task_runner.py:83} INFO - Job 182: Subtask Create_table
+[2023-11-22T10:19:29.102+0000] {task_command.py:376} INFO - Running <TaskInstance: Data_transfer.Create_table manual__2023-11-22T10:19:27.558989+00:00 [running]> on host f71f95879a41
+[2023-11-22T10:19:29.218+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=Data_transfer
+AIRFLOW_CTX_TASK_ID=Create_table
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-22T10:19:27.558989+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-11-22T10:19:27.558989+00:00
+[2023-11-22T10:19:29.229+0000] {base.py:71} INFO - Using connection ID 'postgres' for task execution.
+[2023-11-22T10:19:29.234+0000] {sql.py:315} INFO - Running statement: 
+        CREATE TABLE IF NOT EXISTS table1_users (
+        uuid TEXT NOT NULL,
+        title TEXT NOT NULL,
+        firstname TEXT NOT NULL,
+        lastname TEXT NOT NULL,
+        gender TEXT NOT NULL,
+        country TEXT NOT NULL,
+        username TEXT NOT NULL,
+        password TEXT NOT NULL,
+        email TEXT NOT NULL,
+        age INT NOT NULL
+        )
+        , parameters: None
+[2023-11-22T10:19:29.235+0000] {postgres.py:96} INFO - NOTICE:  relation "table1_users" already exists, skipping
+
+[2023-11-22T10:19:29.248+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=Data_transfer, task_id=Create_table, execution_date=20231122T101927, start_date=20231122T101928, end_date=20231122T101929
+[2023-11-22T10:19:29.296+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2023-11-22T10:19:29.352+0000] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

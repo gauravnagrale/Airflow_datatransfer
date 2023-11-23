@@ -1,0 +1,36 @@
+[2023-11-22T06:33:44.964+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.destinatin_table manual__2023-11-22T06:33:31.692445+00:00 [queued]>
+[2023-11-22T06:33:44.983+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.destinatin_table manual__2023-11-22T06:33:31.692445+00:00 [queued]>
+[2023-11-22T06:33:44.983+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-22T06:33:44.984+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2023-11-22T06:33:44.985+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-22T06:33:45.008+0000] {taskinstance.py:1383} INFO - Executing <Task(PostgresOperator): destinatin_table> on 2023-11-22 06:33:31.692445+00:00
+[2023-11-22T06:33:45.017+0000] {standard_task_runner.py:55} INFO - Started process 1023 to run task
+[2023-11-22T06:33:45.025+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'rand_user', 'destinatin_table', 'manual__2023-11-22T06:33:31.692445+00:00', '--job-id', '36', '--raw', '--subdir', 'DAGS_FOLDER/predictions.py', '--cfg-path', '/tmp/tmp8qkvp8qz']
+[2023-11-22T06:33:45.028+0000] {standard_task_runner.py:83} INFO - Job 36: Subtask destinatin_table
+[2023-11-22T06:33:45.136+0000] {task_command.py:376} INFO - Running <TaskInstance: rand_user.destinatin_table manual__2023-11-22T06:33:31.692445+00:00 [running]> on host e4a6f7cdd654
+[2023-11-22T06:33:45.258+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=rand_user
+AIRFLOW_CTX_TASK_ID=destinatin_table
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-22T06:33:31.692445+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-11-22T06:33:31.692445+00:00
+[2023-11-22T06:33:45.290+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/postgres/operators/postgres.py", line 94, in execute
+    self.hook.run(self.sql, self.autocommit, parameters=self.parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 288, in run
+    with closing(self.get_conn()) as conn:
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/postgres/hooks/postgres.py", line 88, in get_conn
+    conn = deepcopy(self.connection or self.get_connection(conn_id))
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/hooks/base.py", line 70, in get_connection
+    conn = Connection.get_connection_from_secrets(conn_id)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/connection.py", line 432, in get_connection_from_secrets
+    raise AirflowNotFoundException(f"The conn_id `{conn_id}` isn't defined")
+airflow.exceptions.AirflowNotFoundException: The conn_id `pgadmin_connection` isn't defined
+[2023-11-22T06:33:45.299+0000] {taskinstance.py:1406} INFO - Marking task as UP_FOR_RETRY. dag_id=rand_user, task_id=destinatin_table, execution_date=20231122T063331, start_date=20231122T063344, end_date=20231122T063345
+[2023-11-22T06:33:45.320+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 36 for task destinatin_table (The conn_id `pgadmin_connection` isn't defined; 1023)
+[2023-11-22T06:33:45.355+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2023-11-22T06:33:45.396+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

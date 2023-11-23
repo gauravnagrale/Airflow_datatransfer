@@ -1,0 +1,26 @@
+[2023-11-22T09:07:52.897+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Data_transfer.extract_user manual__2023-11-22T09:06:47.314962+00:00 [queued]>
+[2023-11-22T09:07:52.910+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Data_transfer.extract_user manual__2023-11-22T09:06:47.314962+00:00 [queued]>
+[2023-11-22T09:07:52.911+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-22T09:07:52.911+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2023-11-22T09:07:52.911+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-22T09:07:52.929+0000] {taskinstance.py:1383} INFO - Executing <Task(SimpleHttpOperator): extract_user> on 2023-11-22 09:06:47.314962+00:00
+[2023-11-22T09:07:52.936+0000] {standard_task_runner.py:55} INFO - Started process 3122 to run task
+[2023-11-22T09:07:52.941+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Data_transfer', 'extract_user', 'manual__2023-11-22T09:06:47.314962+00:00', '--job-id', '38', '--raw', '--subdir', 'DAGS_FOLDER/data_transfer.py', '--cfg-path', '/tmp/tmp2ovkbbbb']
+[2023-11-22T09:07:52.944+0000] {standard_task_runner.py:83} INFO - Job 38: Subtask extract_user
+[2023-11-22T09:07:53.013+0000] {task_command.py:376} INFO - Running <TaskInstance: Data_transfer.extract_user manual__2023-11-22T09:06:47.314962+00:00 [running]> on host f71f95879a41
+[2023-11-22T09:07:53.093+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=Data_transfer
+AIRFLOW_CTX_TASK_ID=extract_user
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-22T09:06:47.314962+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-11-22T09:06:47.314962+00:00
+[2023-11-22T09:07:53.094+0000] {http.py:121} INFO - Calling HTTP method
+[2023-11-22T09:07:53.106+0000] {base.py:71} INFO - Using connection ID 'rand_user_api' for task execution.
+[2023-11-22T09:07:53.108+0000] {http.py:148} INFO - Sending 'GET' to url: https://randomuser.me/api/
+[2023-11-22T09:07:53.512+0000] {http.py:125} INFO - {"results":[{"gender":"male","name":{"title":"Mr","first":"Zackary","last":"Abraham"},"location":{"street":{"number":1618,"name":"St. Lawrence Ave"},"city":"Lasalle","state":"Northwest Territories","country":"Canada","postcode":"F8O 1N9","coordinates":{"latitude":"-67.9598","longitude":"-43.6302"},"timezone":{"offset":"+9:30","description":"Adelaide, Darwin"}},"email":"zackary.abraham@example.com","login":{"uuid":"f0e2d861-258e-4d37-8ae7-6ebb5a7ba61b","username":"whiteladybug452","password":"newton","salt":"kvI6ZpCc","md5":"2f9032ddb09f647ec134729a9bef6d62","sha1":"ba9661559e08d52069e920532cf0f4e52779876f","sha256":"c4ef00062b8198dd1f9cac453dfc08b6f31433f3aa386520081f484dec22681c"},"dob":{"date":"1996-07-26T07:48:53.700Z","age":27},"registered":{"date":"2017-04-04T00:15:39.455Z","age":6},"phone":"J64 S64-0756","cell":"Y40 P38-2634","id":{"name":"SIN","value":"213121650"},"picture":{"large":"https://randomuser.me/api/portraits/men/74.jpg","medium":"https://randomuser.me/api/portraits/med/men/74.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/men/74.jpg"},"nat":"CA"}],"info":{"seed":"fc45b611f374e6c8","results":1,"page":1,"version":"1.4"}}
+[2023-11-22T09:07:53.538+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=Data_transfer, task_id=extract_user, execution_date=20231122T090647, start_date=20231122T090752, end_date=20231122T090753
+[2023-11-22T09:07:53.594+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2023-11-22T09:07:53.625+0000] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

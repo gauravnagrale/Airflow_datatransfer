@@ -1,0 +1,26 @@
+[2023-11-23T05:51:49.708+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.extract_user scheduled__2023-11-23T05:21:44.704309+00:00 [queued]>
+[2023-11-23T05:51:49.720+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.extract_user scheduled__2023-11-23T05:21:44.704309+00:00 [queued]>
+[2023-11-23T05:51:49.721+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-23T05:51:49.721+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2023-11-23T05:51:49.721+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-23T05:51:49.737+0000] {taskinstance.py:1383} INFO - Executing <Task(SimpleHttpOperator): extract_user> on 2023-11-23 05:21:44.704309+00:00
+[2023-11-23T05:51:49.742+0000] {standard_task_runner.py:55} INFO - Started process 5117 to run task
+[2023-11-23T05:51:49.747+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'rand_user', 'extract_user', 'scheduled__2023-11-23T05:21:44.704309+00:00', '--job-id', '439', '--raw', '--subdir', 'DAGS_FOLDER/predictions.py', '--cfg-path', '/tmp/tmp_f7v0cq4']
+[2023-11-23T05:51:49.749+0000] {standard_task_runner.py:83} INFO - Job 439: Subtask extract_user
+[2023-11-23T05:51:49.816+0000] {task_command.py:376} INFO - Running <TaskInstance: rand_user.extract_user scheduled__2023-11-23T05:21:44.704309+00:00 [running]> on host f71f95879a41
+[2023-11-23T05:51:49.887+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=rand_user
+AIRFLOW_CTX_TASK_ID=extract_user
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-23T05:21:44.704309+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-11-23T05:21:44.704309+00:00
+[2023-11-23T05:51:49.888+0000] {http.py:121} INFO - Calling HTTP method
+[2023-11-23T05:51:49.898+0000] {base.py:71} INFO - Using connection ID 'rand_user_api' for task execution.
+[2023-11-23T05:51:49.900+0000] {http.py:148} INFO - Sending 'GET' to url: https://randomuser.me/api/
+[2023-11-23T05:51:50.449+0000] {http.py:125} INFO - {"results":[{"gender":"female","name":{"title":"Mrs","first":"آوا","last":"مرادی"},"location":{"street":{"number":567,"name":"برادران سلیمانی"},"city":"خرم‌آباد","state":"خوزستان","country":"Iran","postcode":13550,"coordinates":{"latitude":"19.6851","longitude":"168.3229"},"timezone":{"offset":"+7:00","description":"Bangkok, Hanoi, Jakarta"}},"email":"aw.mrdy@example.com","login":{"uuid":"1aad0255-0d5c-48aa-8bc4-72a53aad5d86","username":"brownkoala238","password":"ride","salt":"2wUHQNdR","md5":"297853b280150d77f2e7c9e7594202d3","sha1":"32858c7b3a2e43967ae8924fed3e25ca49dc1611","sha256":"7ec2b1ef28f76317de1947bf19921e39e762bf9b4d309fd2b2ab42e65cad0ead"},"dob":{"date":"1980-05-20T16:51:27.492Z","age":43},"registered":{"date":"2009-03-20T01:58:31.720Z","age":14},"phone":"066-83854356","cell":"0935-834-8017","id":{"name":"","value":null},"picture":{"large":"https://randomuser.me/api/portraits/women/18.jpg","medium":"https://randomuser.me/api/portraits/med/women/18.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/18.jpg"},"nat":"IR"}],"info":{"seed":"318e980e3cbbdcde","results":1,"page":1,"version":"1.4"}}
+[2023-11-23T05:51:50.524+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=rand_user, task_id=extract_user, execution_date=20231123T052144, start_date=20231123T055149, end_date=20231123T055150
+[2023-11-23T05:51:50.562+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2023-11-23T05:51:50.606+0000] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

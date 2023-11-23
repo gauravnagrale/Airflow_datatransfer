@@ -1,0 +1,26 @@
+[2023-11-23T08:20:19.468+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.extract_user scheduled__2023-11-23T08:04:10.522542+00:00 [queued]>
+[2023-11-23T08:20:19.485+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.extract_user scheduled__2023-11-23T08:04:10.522542+00:00 [queued]>
+[2023-11-23T08:20:19.485+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-23T08:20:19.486+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2023-11-23T08:20:19.486+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-23T08:20:19.505+0000] {taskinstance.py:1383} INFO - Executing <Task(SimpleHttpOperator): extract_user> on 2023-11-23 08:04:10.522542+00:00
+[2023-11-23T08:20:19.512+0000] {standard_task_runner.py:55} INFO - Started process 10535 to run task
+[2023-11-23T08:20:19.516+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'rand_user', 'extract_user', 'scheduled__2023-11-23T08:04:10.522542+00:00', '--job-id', '655', '--raw', '--subdir', 'DAGS_FOLDER/predictions.py', '--cfg-path', '/tmp/tmp86rwgmhn']
+[2023-11-23T08:20:19.519+0000] {standard_task_runner.py:83} INFO - Job 655: Subtask extract_user
+[2023-11-23T08:20:19.591+0000] {task_command.py:376} INFO - Running <TaskInstance: rand_user.extract_user scheduled__2023-11-23T08:04:10.522542+00:00 [running]> on host f71f95879a41
+[2023-11-23T08:20:19.670+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=rand_user
+AIRFLOW_CTX_TASK_ID=extract_user
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-23T08:04:10.522542+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-11-23T08:04:10.522542+00:00
+[2023-11-23T08:20:19.672+0000] {http.py:121} INFO - Calling HTTP method
+[2023-11-23T08:20:19.683+0000] {base.py:71} INFO - Using connection ID 'rand_user_api' for task execution.
+[2023-11-23T08:20:19.685+0000] {http.py:148} INFO - Sending 'GET' to url: https://randomuser.me/api/
+[2023-11-23T08:20:20.201+0000] {http.py:125} INFO - {"results":[{"gender":"female","name":{"title":"Mrs","first":"Hannah","last":"Wright"},"location":{"street":{"number":6980,"name":"Remuera Road"},"city":"Masterton","state":"Bay of Plenty","country":"New Zealand","postcode":96459,"coordinates":{"latitude":"47.5180","longitude":"84.7809"},"timezone":{"offset":"-6:00","description":"Central Time (US & Canada), Mexico City"}},"email":"hannah.wright@example.com","login":{"uuid":"5f93bb61-fa39-4a88-98b0-1e6aad27ce16","username":"angrybutterfly941","password":"poochie","salt":"QoKNHHvI","md5":"f325d702e6f5862ec95fe161d604d8cb","sha1":"0b80153f9ad865c054bb63c19bdb95c2ee11c7d5","sha256":"c2709890f9c0a8a185917ebd02a65c2f1f2e5431e051ff4ac33d9ab4938dd195"},"dob":{"date":"1969-03-18T22:13:05.118Z","age":54},"registered":{"date":"2015-10-11T10:00:33.497Z","age":8},"phone":"(814)-780-3527","cell":"(028)-243-6583","id":{"name":"","value":null},"picture":{"large":"https://randomuser.me/api/portraits/women/62.jpg","medium":"https://randomuser.me/api/portraits/med/women/62.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/62.jpg"},"nat":"NZ"}],"info":{"seed":"05365fbdaf998442","results":1,"page":1,"version":"1.4"}}
+[2023-11-23T08:20:20.235+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=rand_user, task_id=extract_user, execution_date=20231123T080410, start_date=20231123T082019, end_date=20231123T082020
+[2023-11-23T08:20:20.290+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2023-11-23T08:20:20.334+0000] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

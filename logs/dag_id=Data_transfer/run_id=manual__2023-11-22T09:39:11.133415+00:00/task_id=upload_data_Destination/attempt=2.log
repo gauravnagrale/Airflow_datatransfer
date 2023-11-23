@@ -1,0 +1,42 @@
+[2023-11-22T09:40:29.656+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Data_transfer.upload_data_Destination manual__2023-11-22T09:39:11.133415+00:00 [queued]>
+[2023-11-22T09:40:29.670+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Data_transfer.upload_data_Destination manual__2023-11-22T09:39:11.133415+00:00 [queued]>
+[2023-11-22T09:40:29.671+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-22T09:40:29.671+0000] {taskinstance.py:1363} INFO - Starting attempt 2 of 3
+[2023-11-22T09:40:29.671+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-22T09:40:29.692+0000] {taskinstance.py:1383} INFO - Executing <Task(GenericTransfer): upload_data_Destination> on 2023-11-22 09:39:11.133415+00:00
+[2023-11-22T09:40:29.700+0000] {standard_task_runner.py:55} INFO - Started process 4844 to run task
+[2023-11-22T09:40:29.706+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Data_transfer', 'upload_data_Destination', 'manual__2023-11-22T09:39:11.133415+00:00', '--job-id', '104', '--raw', '--subdir', 'DAGS_FOLDER/data_transfer.py', '--cfg-path', '/tmp/tmpyf9ti0n8']
+[2023-11-22T09:40:29.710+0000] {standard_task_runner.py:83} INFO - Job 104: Subtask upload_data_Destination
+[2023-11-22T09:40:29.809+0000] {task_command.py:376} INFO - Running <TaskInstance: Data_transfer.upload_data_Destination manual__2023-11-22T09:39:11.133415+00:00 [running]> on host f71f95879a41
+[2023-11-22T09:40:29.922+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=Data_transfer
+AIRFLOW_CTX_TASK_ID=upload_data_Destination
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-22T09:39:11.133415+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-11-22T09:39:11.133415+00:00
+[2023-11-22T09:40:29.938+0000] {base.py:71} INFO - Using connection ID 'source_db_***' for task execution.
+[2023-11-22T09:40:30.235+0000] {base.py:71} INFO - Using connection ID 'dest_conn_id' for task execution.
+[2023-11-22T09:40:30.446+0000] {generic_transfer.py:76} INFO - Extracting data from source_db_***
+[2023-11-22T09:40:30.447+0000] {generic_transfer.py:77} INFO - Executing: 
+ select * from table1_users
+[2023-11-22T09:40:30.454+0000] {base.py:71} INFO - Using connection ID 'source_db_***' for task execution.
+[2023-11-22T09:40:30.467+0000] {generic_transfer.py:104} INFO - Inserting rows into dest_conn_id
+[2023-11-22T09:40:30.473+0000] {base.py:71} INFO - Using connection ID 'dest_conn_id' for task execution.
+[2023-11-22T09:40:30.529+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/generic_transfer.py", line 105, in execute
+    insert_rows(table=self.destination_table, rows=results, **self.insert_args)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 409, in insert_rows
+    cur.execute(sql, values)
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "rand_dest_users_pkey"
+DETAIL:  Key (uuid)=(3d0212e1-5baa-4430-b868-6cf0d49a9ee5) already exists.
+
+[2023-11-22T09:40:30.538+0000] {taskinstance.py:1406} INFO - Marking task as UP_FOR_RETRY. dag_id=Data_transfer, task_id=upload_data_Destination, execution_date=20231122T093911, start_date=20231122T094029, end_date=20231122T094030
+[2023-11-22T09:40:30.560+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 104 for task upload_data_Destination (duplicate key value violates unique constraint "rand_dest_users_pkey"
+DETAIL:  Key (uuid)=(3d0212e1-5baa-4430-b868-6cf0d49a9ee5) already exists.
+; 4844)
+[2023-11-22T09:40:30.599+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2023-11-22T09:40:30.631+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,39 @@
+[2023-11-21T12:18:58.327+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.Create_table manual__2023-11-21T12:04:26.357046+00:00 [queued]>
+[2023-11-21T12:18:58.352+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.Create_table manual__2023-11-21T12:04:26.357046+00:00 [queued]>
+[2023-11-21T12:18:58.353+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-21T12:18:58.354+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2023-11-21T12:18:58.355+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-21T12:18:58.395+0000] {taskinstance.py:1383} INFO - Executing <Task(PostgresOperator): Create_table> on 2023-11-21 12:04:26.357046+00:00
+[2023-11-21T12:18:58.407+0000] {standard_task_runner.py:55} INFO - Started process 444 to run task
+[2023-11-21T12:18:58.416+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'rand_user', 'Create_table', 'manual__2023-11-21T12:04:26.357046+00:00', '--job-id', '533', '--raw', '--subdir', 'DAGS_FOLDER/predictions.py', '--cfg-path', '/tmp/tmpwgd_ytg4']
+[2023-11-21T12:18:58.420+0000] {standard_task_runner.py:83} INFO - Job 533: Subtask Create_table
+[2023-11-21T12:18:58.563+0000] {task_command.py:376} INFO - Running <TaskInstance: rand_user.Create_table manual__2023-11-21T12:04:26.357046+00:00 [running]> on host 91f7624ceef9
+[2023-11-21T12:18:58.724+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=rand_user
+AIRFLOW_CTX_TASK_ID=Create_table
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-21T12:04:26.357046+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-11-21T12:04:26.357046+00:00
+[2023-11-21T12:18:58.742+0000] {base.py:71} INFO - Using connection ID 'source_db_***' for task execution.
+[2023-11-21T12:18:58.745+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/postgres/operators/postgres.py", line 94, in execute
+    self.hook.run(self.sql, self.autocommit, parameters=self.parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 288, in run
+    with closing(self.get_conn()) as conn:
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/postgres/hooks/postgres.py", line 115, in get_conn
+    self.conn = psycopg2.connect(**conn_args)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "10.226.80.35", port 5445 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2023-11-21T12:18:58.763+0000] {taskinstance.py:1406} INFO - Marking task as UP_FOR_RETRY. dag_id=rand_user, task_id=Create_table, execution_date=20231121T120426, start_date=20231121T121858, end_date=20231121T121858
+[2023-11-21T12:18:58.788+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 533 for task Create_table (connection to server at "10.226.80.35", port 5445 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+; 444)
+[2023-11-21T12:18:58.827+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2023-11-21T12:18:58.907+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

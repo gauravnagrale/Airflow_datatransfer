@@ -1,0 +1,39 @@
+[2023-11-23T04:18:14.864+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Data_transfer.Create_source_table scheduled__2023-11-23T03:48:04.842247+00:00 [queued]>
+[2023-11-23T04:18:14.876+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Data_transfer.Create_source_table scheduled__2023-11-23T03:48:04.842247+00:00 [queued]>
+[2023-11-23T04:18:14.877+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-23T04:18:14.877+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2023-11-23T04:18:14.878+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-23T04:18:14.892+0000] {taskinstance.py:1383} INFO - Executing <Task(PostgresOperator): Create_source_table> on 2023-11-23 03:48:04.842247+00:00
+[2023-11-23T04:18:14.899+0000] {standard_task_runner.py:55} INFO - Started process 141 to run task
+[2023-11-23T04:18:14.904+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Data_transfer', 'Create_source_table', 'scheduled__2023-11-23T03:48:04.842247+00:00', '--job-id', '244', '--raw', '--subdir', 'DAGS_FOLDER/data_transfer.py', '--cfg-path', '/tmp/tmp2e1d1en9']
+[2023-11-23T04:18:14.906+0000] {standard_task_runner.py:83} INFO - Job 244: Subtask Create_source_table
+[2023-11-23T04:18:14.968+0000] {task_command.py:376} INFO - Running <TaskInstance: Data_transfer.Create_source_table scheduled__2023-11-23T03:48:04.842247+00:00 [running]> on host f71f95879a41
+[2023-11-23T04:18:15.037+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=Data_transfer
+AIRFLOW_CTX_TASK_ID=Create_source_table
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-23T03:48:04.842247+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-11-23T03:48:04.842247+00:00
+[2023-11-23T04:18:15.048+0000] {base.py:71} INFO - Using connection ID 'source_db_***' for task execution.
+[2023-11-23T04:18:15.055+0000] {sql.py:315} INFO - Running statement: 
+        CREATE TABLE IF NOT EXISTS source_table (
+        uuid TEXT NOT NULL,
+        title TEXT NOT NULL,
+        firstname TEXT NOT NULL,
+        lastname TEXT NOT NULL,
+        gender TEXT NOT NULL,
+        country TEXT NOT NULL,
+        username TEXT NOT NULL,
+        password TEXT NOT NULL,
+        email TEXT NOT NULL,
+        age INT NOT NULL
+        )
+        , parameters: None
+[2023-11-23T04:18:15.057+0000] {postgres.py:96} INFO - NOTICE:  relation "source_table" already exists, skipping
+
+[2023-11-23T04:18:15.067+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=Data_transfer, task_id=Create_source_table, execution_date=20231123T034804, start_date=20231123T041814, end_date=20231123T041815
+[2023-11-23T04:18:15.115+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2023-11-23T04:18:15.186+0000] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

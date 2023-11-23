@@ -12,32 +12,37 @@ from airflow.operators.generic_transfer import GenericTransfer
 
 def _process_user(ti):
     user_data = ti.xcom_pull(task_ids="extract_user")  # Extract the data using xcom_pull() function
+    print("printing the user-data",user_data)
     user = user_data['results'][0]
     
     processed_user = json_normalize({
-        'gender': user['gender'],
-        'title': user['name']['title'],
-        'firstname': user['name']['first'],
-        'lastname': user['name']['last'],
-        'country': user['location']['country'], 
-        'username': user['login']['username'],
-        'password': user['login']['password'],
-        'email': user['email'],
-        'age': user['dob']['age']
-    })
+            'uuid':user['login']['uuid'],
+            'gender': user['gender'],
+            'title': user['name']['title'],
+            'firstname': user['name']['first'],
+            'lastname': user['name']['last'],
+            'country': user['location']['country'], 
+            'username': user['login']['username'],
+            'password': user['login']['password'],
+            'email': user['email'],
+            'age': user['dob']['age']
+        })
     
     processed_user.to_csv('/tmp/processed_user.csv', index=None, header=False)
+
 
 
 # PostgresHook is used to interact with the PostgreSQL database
 def _store_user():
     #postgres hook is used to communicate with the external data source 
-    hook = PostgresHook(postgres_conn_id='postgres')
+    hook = PostgresHook(postgres_conn_id='source_db_aiimsnew')
 
     hook.copy_expert(
-        sql="COPY rand_users FROM stdin WITH DELIMITER as ','",
+        sql="COPY rand_users FROM stdin WITH DELIMITER as ',' ",
         filename='/tmp/processed_user.csv'
-    ) 
+    )
+
+
 
 #this is a default DAG when the DAG fails for some reason it automaatically re-tries for the 2 times as we mentioned and it retires after every 1min 
 default_args = {
@@ -48,55 +53,60 @@ default_args = {
 
 with DAG(
     dag_id="rand_user",
-    start_date=datetime(2023, 10, 15),
+    start_date=datetime(2023, 11, 22),
     default_args=default_args,
-    description="Creating the table for the user",
-    schedule_interval='@daily',
+    description="Transfering the data from the source to destination DB",
+    #schedule_interval='@daily',
+    schedule_interval=timedelta(minutes=15),
     catchup=False
 ) as dag:
     #Creating the source table
     create_table = PostgresOperator(
-        task_id="Create_table",
-        postgres_conn_id='source_db_aiimsnew',
-        sql='''
-        CREATE TABLE IF NOT EXISTS rand_users (
-        gender TEXT NOT NULL,
+    task_id="Create_table",
+    postgres_conn_id='source_db_aiimsnew',
+    sql='''
+    CREATE TABLE IF NOT EXISTS rand_users (
+        uuid TEXT NOT NULL,
         title TEXT NOT NULL,
         firstname TEXT NOT NULL,
         lastname TEXT NOT NULL,
+        gender TEXT NOT NULL,
         country TEXT NOT NULL,
         username TEXT NOT NULL,
         password TEXT NOT NULL,
         email TEXT NOT NULL,
-        age TEXT NOT NULL
-        )
-        '''
+        age INT NOT NULL
     )
+    '''
+)
 
-    #Creating the Destination table for the storing user data
+    # Creating the Destination table for storing user data
     create_dest_table = PostgresOperator(
-        task_id = "destinatin_table",
-        postgres_conn_id = "pgadmin_connection",
-        sql = '''
-        CREATE TABLE IF NOT EXISTS rand_dest_users (
-        gender TEXT NOT NULL,
+    task_id="create_destination_table",
+    postgres_conn_id="dest_conn_id",
+    dag=dag,
+    sql='''
+    CREATE TABLE IF NOT EXISTS rand_dest_users (
+        uuid TEXT NOT NULL,
         title TEXT NOT NULL,
         firstname TEXT NOT NULL,
         lastname TEXT NOT NULL,
+        gender TEXT NOT NULL,
         country TEXT NOT NULL,
         username TEXT NOT NULL,
         password TEXT NOT NULL,
         email TEXT NOT NULL,
-        age TEXT NOT NULL
-        )
-        '''
+        age INT NOT NULL
     )
+    '''
+)
+
 
     #Creating our first sensor
     #here we are checking if the api available
     is_api_available = HttpSensor(#This is the name of a AIRFLOW task
         task_id='is_api_available',#This is the unique identifier for the task within the context of an Airflow DAG. In this case, it's named 'is_api_available'.
-        http_conn_id='rand_user',  # Replace with your actual HTTP connection ID
+        http_conn_id='rand_user_api',  # Replace with your actual HTTP connection ID
         endpoint='api/'
         # Endpoint URLs are essential for making requests to web services or APIs. 
         # When you make an HTTP request to an endpoint URL, you are specifying which resource or service you want to interact with.
@@ -105,10 +115,11 @@ with DAG(
     #is this is the sensor which will extract the data from the api that we have mentioned 
     extract_user = SimpleHttpOperator(
         task_id='extract_user',
-        http_conn_id='rand_user',
+        http_conn_id='rand_user_api',
         endpoint='api/',
         method='GET',
         response_filter=lambda response: json.loads(response.text),
+        #response_filter=lambda response: _filter_unique_records(response),
         log_response=True
     )
 
@@ -123,28 +134,16 @@ with DAG(
         python_callable=_store_user
     )
 
+    # Transfering the source data to the destination data: 
     # GenericTransfer task to upload data into the source table
-    upload_data_source = GenericTransfer(
-        task_id='upload_data_source',
-        sql="SELECT * FROM rand_users",
-        destination_table="rand_users",
-        source_conn_id="postgres",
-        destination_conn_id="source_db_aiimsnew",
-        preoperator="TRUNCATE TABLE rand_users" ,#this ensures that # this line is for removing the data from the the destination table before pushing the new data
+    upload_data_to_destination = GenericTransfer(
+        task_id='upload_data_to_destination',
+        sql="SELECT * FROM rand_users", #here i will not get the unique records
+        destination_table="rand_dest_users",
+        source_conn_id="source_db_aiimsnew",
+        destination_conn_id="dest_conn_id",
+        #preoperator="TRUNCATE TABLE rand_users" ,#this ensures that # this line is for removing the data from the the destination table before pushing the new data
         dag=dag
     )
 
-
-    # GenericTransfer task to upload data into the destination table
-    upload_data_destination = GenericTransfer(
-                        task_id='upload_data_Destination' ,
-                        sql="select * from rand_users",
-                        destination_table ="rand_dest_users"  ,
-                        source_conn_id="source_db_aiimsnew"  ,
-                        destination_conn_id="pgadmin_connection" ,
-                        #preoperator="TRUNCATE TABLE rand_dest_users" ,#this ensures that # this line is for removing the data from the the destination table before pushing the new data
-                        dag=dag
-                    )
-# dump the data into the source table
-
-create_table>>is_api_available>>extract_user>>process_user>>store_user>>create_dest_table>>upload_data_source>>upload_data_destination
+create_table>>is_api_available>>extract_user>>process_user>>store_user>>create_dest_table>>upload_data_to_destination

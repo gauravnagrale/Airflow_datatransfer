@@ -1,0 +1,25 @@
+[2023-11-22T06:44:14.893+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.store_user scheduled__2023-11-22T06:14:03.150203+00:00 [queued]>
+[2023-11-22T06:44:14.912+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.store_user scheduled__2023-11-22T06:14:03.150203+00:00 [queued]>
+[2023-11-22T06:44:14.913+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-22T06:44:14.913+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2023-11-22T06:44:14.914+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-22T06:44:14.940+0000] {taskinstance.py:1383} INFO - Executing <Task(PythonOperator): store_user> on 2023-11-22 06:14:03.150203+00:00
+[2023-11-22T06:44:14.952+0000] {standard_task_runner.py:55} INFO - Started process 1539 to run task
+[2023-11-22T06:44:14.961+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'rand_user', 'store_user', 'scheduled__2023-11-22T06:14:03.150203+00:00', '--job-id', '55', '--raw', '--subdir', 'DAGS_FOLDER/predictions.py', '--cfg-path', '/tmp/tmpdii46wed']
+[2023-11-22T06:44:14.965+0000] {standard_task_runner.py:83} INFO - Job 55: Subtask store_user
+[2023-11-22T06:44:15.091+0000] {task_command.py:376} INFO - Running <TaskInstance: rand_user.store_user scheduled__2023-11-22T06:14:03.150203+00:00 [running]> on host e4a6f7cdd654
+[2023-11-22T06:44:15.214+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=rand_user
+AIRFLOW_CTX_TASK_ID=store_user
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-22T06:14:03.150203+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-11-22T06:14:03.150203+00:00
+[2023-11-22T06:44:15.217+0000] {postgres.py:129} INFO - Running copy expert: COPY rand_users FROM stdin WITH DELIMITER as ',', filename: /tmp/processed_user.csv
+[2023-11-22T06:44:15.234+0000] {base.py:71} INFO - Using connection ID 'postgres' for task execution.
+[2023-11-22T06:44:15.245+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-11-22T06:44:15.266+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=rand_user, task_id=store_user, execution_date=20231122T061403, start_date=20231122T064414, end_date=20231122T064415
+[2023-11-22T06:44:15.332+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2023-11-22T06:44:15.395+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

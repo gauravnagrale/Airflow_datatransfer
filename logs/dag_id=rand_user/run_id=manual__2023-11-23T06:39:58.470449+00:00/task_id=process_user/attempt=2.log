@@ -1,0 +1,33 @@
+[2023-11-23T06:41:10.327+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.process_user manual__2023-11-23T06:39:58.470449+00:00 [queued]>
+[2023-11-23T06:41:10.340+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.process_user manual__2023-11-23T06:39:58.470449+00:00 [queued]>
+[2023-11-23T06:41:10.340+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-23T06:41:10.340+0000] {taskinstance.py:1363} INFO - Starting attempt 2 of 3
+[2023-11-23T06:41:10.341+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-23T06:41:10.356+0000] {taskinstance.py:1383} INFO - Executing <Task(PythonOperator): process_user> on 2023-11-23 06:39:58.470449+00:00
+[2023-11-23T06:41:10.362+0000] {standard_task_runner.py:55} INFO - Started process 7712 to run task
+[2023-11-23T06:41:10.367+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'rand_user', 'process_user', 'manual__2023-11-23T06:39:58.470449+00:00', '--job-id', '533', '--raw', '--subdir', 'DAGS_FOLDER/predictions.py', '--cfg-path', '/tmp/tmp5u31r5q2']
+[2023-11-23T06:41:10.369+0000] {standard_task_runner.py:83} INFO - Job 533: Subtask process_user
+[2023-11-23T06:41:10.433+0000] {task_command.py:376} INFO - Running <TaskInstance: rand_user.process_user manual__2023-11-23T06:39:58.470449+00:00 [running]> on host f71f95879a41
+[2023-11-23T06:41:10.502+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=rand_user
+AIRFLOW_CTX_TASK_ID=process_user
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-23T06:39:58.470449+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-11-23T06:39:58.470449+00:00
+[2023-11-23T06:41:10.516+0000] {logging_mixin.py:120} INFO - printing the user-data {"results": [{"gender": "male", "name": {"title": "Mr", "first": "Emile", "last": "Chow"}, "location": {"street": {"number": 8190, "name": "York St"}, "city": "Stratford", "state": "Manitoba", "country": "Canada", "postcode": "R7J 4M6", "coordinates": {"latitude": "-66.8990", "longitude": "-80.2368"}, "timezone": {"offset": "0:00", "description": "Western Europe Time, London, Lisbon, Casablanca"}}, "email": "emile.chow@example.com", "login": {"uuid": "527dfd2f-e105-4927-a28a-d697e1ddb678", "username": "lazymouse851", "password": "blaine", "salt": "4fcvJkC5", "md5": "41be8630eae12f08f03130970d886311", "sha1": "993bfec10bb32b61b2130242993ac1488ed0b68f", "sha256": "305d907a49d89fd0e1dcc7e357168ab2996b0fe53b83fd7ed9c3c221a8f1bfbd"}, "dob": {"date": "1967-01-16T06:04:20.739Z", "age": 56}, "registered": {"date": "2014-10-15T07:18:14.977Z", "age": 9}, "phone": "X08 V73-4541", "cell": "F93 Z86-4377", "id": {"name": "SIN", "value": "789258126"}, "picture": {"large": "https://randomuser.me/api/portraits/men/49.jpg", "medium": "https://randomuser.me/api/portraits/med/men/49.jpg", "thumbnail": "https://randomuser.me/api/portraits/thumb/men/49.jpg"}, "nat": "CA"}]}
+[2023-11-23T06:41:10.517+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 193, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/predictions.py", line 16, in _process_user
+    user = user_data['results'][0]
+TypeError: string indices must be integers
+[2023-11-23T06:41:10.526+0000] {taskinstance.py:1406} INFO - Marking task as UP_FOR_RETRY. dag_id=rand_user, task_id=process_user, execution_date=20231123T063958, start_date=20231123T064110, end_date=20231123T064110
+[2023-11-23T06:41:10.537+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 533 for task process_user (string indices must be integers; 7712)
+[2023-11-23T06:41:10.578+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2023-11-23T06:41:10.626+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,44 @@
+[2023-11-23T07:00:13.188+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.upload_data_to_destination manual__2023-11-23T06:58:59.115866+00:00 [queued]>
+[2023-11-23T07:00:13.201+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.upload_data_to_destination manual__2023-11-23T06:58:59.115866+00:00 [queued]>
+[2023-11-23T07:00:13.201+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-23T07:00:13.202+0000] {taskinstance.py:1363} INFO - Starting attempt 2 of 3
+[2023-11-23T07:00:13.202+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-23T07:00:13.221+0000] {taskinstance.py:1383} INFO - Executing <Task(GenericTransfer): upload_data_to_destination> on 2023-11-23 06:58:59.115866+00:00
+[2023-11-23T07:00:13.228+0000] {standard_task_runner.py:55} INFO - Started process 8757 to run task
+[2023-11-23T07:00:13.233+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'rand_user', 'upload_data_to_destination', 'manual__2023-11-23T06:58:59.115866+00:00', '--job-id', '588', '--raw', '--subdir', 'DAGS_FOLDER/predictions.py', '--cfg-path', '/tmp/tmpcspzosfe']
+[2023-11-23T07:00:13.235+0000] {standard_task_runner.py:83} INFO - Job 588: Subtask upload_data_to_destination
+[2023-11-23T07:00:13.318+0000] {task_command.py:376} INFO - Running <TaskInstance: rand_user.upload_data_to_destination manual__2023-11-23T06:58:59.115866+00:00 [running]> on host f71f95879a41
+[2023-11-23T07:00:13.403+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=rand_user
+AIRFLOW_CTX_TASK_ID=upload_data_to_destination
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-23T06:58:59.115866+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-11-23T06:58:59.115866+00:00
+[2023-11-23T07:00:13.413+0000] {base.py:71} INFO - Using connection ID 'source_db_***' for task execution.
+[2023-11-23T07:00:13.635+0000] {base.py:71} INFO - Using connection ID 'dest_conn_id' for task execution.
+[2023-11-23T07:00:13.812+0000] {generic_transfer.py:76} INFO - Extracting data from source_db_***
+[2023-11-23T07:00:13.813+0000] {generic_transfer.py:77} INFO - Executing: 
+ SELECT * FROM rand_users WHERE inserted_at > '2023-11-23T06:58:59.115866+00:00'
+[2023-11-23T07:00:13.819+0000] {base.py:71} INFO - Using connection ID 'source_db_***' for task execution.
+[2023-11-23T07:00:13.830+0000] {generic_transfer.py:104} INFO - Inserting rows into dest_conn_id
+[2023-11-23T07:00:13.837+0000] {base.py:71} INFO - Using connection ID 'dest_conn_id' for task execution.
+[2023-11-23T07:00:13.846+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/generic_transfer.py", line 105, in execute
+    insert_rows(table=self.destination_table, rows=results, **self.insert_args)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 409, in insert_rows
+    cur.execute(sql, values)
+psycopg2.errors.SyntaxError: INSERT has more expressions than target columns
+LINE 1: ...ybug745','brewster','landon.bates@example.com',28,'2023-11-2...
+                                                             ^
+
+[2023-11-23T07:00:13.854+0000] {taskinstance.py:1406} INFO - Marking task as UP_FOR_RETRY. dag_id=rand_user, task_id=upload_data_to_destination, execution_date=20231123T065859, start_date=20231123T070013, end_date=20231123T070013
+[2023-11-23T07:00:13.879+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 588 for task upload_data_to_destination (INSERT has more expressions than target columns
+LINE 1: ...ybug745','brewster','landon.bates@example.com',28,'2023-11-2...
+                                                             ^
+; 8757)
+[2023-11-23T07:00:13.925+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2023-11-23T07:00:13.958+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

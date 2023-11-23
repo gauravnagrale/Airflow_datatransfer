@@ -1,0 +1,25 @@
+[2023-11-22T09:10:33.289+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Data_transfer.store_user scheduled__2023-11-22T08:40:23.870064+00:00 [queued]>
+[2023-11-22T09:10:33.307+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Data_transfer.store_user scheduled__2023-11-22T08:40:23.870064+00:00 [queued]>
+[2023-11-22T09:10:33.307+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-22T09:10:33.308+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2023-11-22T09:10:33.308+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-22T09:10:33.331+0000] {taskinstance.py:1383} INFO - Executing <Task(PythonOperator): store_user> on 2023-11-22 08:40:23.870064+00:00
+[2023-11-22T09:10:33.341+0000] {standard_task_runner.py:55} INFO - Started process 3270 to run task
+[2023-11-22T09:10:33.347+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Data_transfer', 'store_user', 'scheduled__2023-11-22T08:40:23.870064+00:00', '--job-id', '46', '--raw', '--subdir', 'DAGS_FOLDER/data_transfer.py', '--cfg-path', '/tmp/tmps8htw6m4']
+[2023-11-22T09:10:33.350+0000] {standard_task_runner.py:83} INFO - Job 46: Subtask store_user
+[2023-11-22T09:10:33.490+0000] {task_command.py:376} INFO - Running <TaskInstance: Data_transfer.store_user scheduled__2023-11-22T08:40:23.870064+00:00 [running]> on host f71f95879a41
+[2023-11-22T09:10:33.671+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=Data_transfer
+AIRFLOW_CTX_TASK_ID=store_user
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-22T08:40:23.870064+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-11-22T08:40:23.870064+00:00
+[2023-11-22T09:10:33.677+0000] {postgres.py:129} INFO - Running copy expert: COPY table1_users FROM stdin WITH DELIMITER as ',', filename: /tmp/processed_user.csv
+[2023-11-22T09:10:33.699+0000] {base.py:71} INFO - Using connection ID 'source_db_***' for task execution.
+[2023-11-22T09:10:33.718+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-11-22T09:10:33.745+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=Data_transfer, task_id=store_user, execution_date=20231122T084023, start_date=20231122T091033, end_date=20231122T091033
+[2023-11-22T09:10:33.802+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2023-11-22T09:10:33.848+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

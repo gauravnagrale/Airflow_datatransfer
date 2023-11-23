@@ -1,0 +1,24 @@
+[2023-11-23T08:20:32.367+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.process_user scheduled__2023-11-23T08:05:25.705671+00:00 [queued]>
+[2023-11-23T08:20:32.382+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.process_user scheduled__2023-11-23T08:05:25.705671+00:00 [queued]>
+[2023-11-23T08:20:32.383+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-23T08:20:32.383+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2023-11-23T08:20:32.384+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-23T08:20:32.401+0000] {taskinstance.py:1383} INFO - Executing <Task(PythonOperator): process_user> on 2023-11-23 08:05:25.705671+00:00
+[2023-11-23T08:20:32.408+0000] {standard_task_runner.py:55} INFO - Started process 10577 to run task
+[2023-11-23T08:20:32.413+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'rand_user', 'process_user', 'scheduled__2023-11-23T08:05:25.705671+00:00', '--job-id', '667', '--raw', '--subdir', 'DAGS_FOLDER/predictions.py', '--cfg-path', '/tmp/tmpfn05rski']
+[2023-11-23T08:20:32.416+0000] {standard_task_runner.py:83} INFO - Job 667: Subtask process_user
+[2023-11-23T08:20:32.495+0000] {task_command.py:376} INFO - Running <TaskInstance: rand_user.process_user scheduled__2023-11-23T08:05:25.705671+00:00 [running]> on host f71f95879a41
+[2023-11-23T08:20:32.605+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=rand_user
+AIRFLOW_CTX_TASK_ID=process_user
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-23T08:05:25.705671+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-11-23T08:05:25.705671+00:00
+[2023-11-23T08:20:32.630+0000] {logging_mixin.py:120} INFO - printing the user-data {'results': [{'gender': 'male', 'name': {'title': 'Monsieur', 'first': 'Ulrich', 'last': 'Rey'}, 'location': {'street': {'number': 7768, 'name': 'Rue Pasteur'}, 'city': 'Hundwil', 'state': 'Vaud', 'country': 'Switzerland', 'postcode': 6840, 'coordinates': {'latitude': '-55.8840', 'longitude': '-59.2819'}, 'timezone': {'offset': '+10:00', 'description': 'Eastern Australia, Guam, Vladivostok'}}, 'email': 'ulrich.rey@example.com', 'login': {'uuid': 'fdfce6e9-7c6b-4261-b785-77d0a697b132', 'username': 'orangefrog526', 'password': 'hounddog', 'salt': 'BWyTlzeS', 'md5': '1d3e86a3c80dfc94cca46a43596a416d', 'sha1': '05340d208aad66df33e4a952d832ac8cbe9430de', 'sha256': '84dc74fd9ccebee3c5aa6ce15a78d8d27f411e2a1e717a670f064587870478ba'}, 'dob': {'date': '1972-08-14T23:21:00.006Z', 'age': 51}, 'registered': {'date': '2018-12-20T13:42:09.926Z', 'age': 4}, 'phone': '076 547 12 10', 'cell': '078 759 74 57', 'id': {'name': 'AVS', 'value': '756.7016.2407.67'}, 'picture': {'large': 'https://randomuser.me/api/portraits/men/3.jpg', 'medium': 'https://randomuser.me/api/portraits/med/men/3.jpg', 'thumbnail': 'https://randomuser.me/api/portraits/thumb/men/3.jpg'}, 'nat': 'CH'}], 'info': {'seed': 'dd859bd92f434559', 'results': 1, 'page': 1, 'version': '1.4'}}
+[2023-11-23T08:20:32.641+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-11-23T08:20:32.658+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=rand_user, task_id=process_user, execution_date=20231123T080525, start_date=20231123T082032, end_date=20231123T082032
+[2023-11-23T08:20:32.706+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2023-11-23T08:20:32.760+0000] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

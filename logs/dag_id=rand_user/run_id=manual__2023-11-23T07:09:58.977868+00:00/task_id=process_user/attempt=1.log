@@ -1,0 +1,24 @@
+[2023-11-23T07:10:08.590+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.process_user manual__2023-11-23T07:09:58.977868+00:00 [queued]>
+[2023-11-23T07:10:08.604+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.process_user manual__2023-11-23T07:09:58.977868+00:00 [queued]>
+[2023-11-23T07:10:08.604+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-23T07:10:08.605+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2023-11-23T07:10:08.605+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-23T07:10:08.623+0000] {taskinstance.py:1383} INFO - Executing <Task(PythonOperator): process_user> on 2023-11-23 07:09:58.977868+00:00
+[2023-11-23T07:10:08.631+0000] {standard_task_runner.py:55} INFO - Started process 9307 to run task
+[2023-11-23T07:10:08.636+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'rand_user', 'process_user', 'manual__2023-11-23T07:09:58.977868+00:00', '--job-id', '615', '--raw', '--subdir', 'DAGS_FOLDER/predictions.py', '--cfg-path', '/tmp/tmpmcyetlyk']
+[2023-11-23T07:10:08.638+0000] {standard_task_runner.py:83} INFO - Job 615: Subtask process_user
+[2023-11-23T07:10:08.716+0000] {task_command.py:376} INFO - Running <TaskInstance: rand_user.process_user manual__2023-11-23T07:09:58.977868+00:00 [running]> on host f71f95879a41
+[2023-11-23T07:10:08.808+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=rand_user
+AIRFLOW_CTX_TASK_ID=process_user
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-23T07:09:58.977868+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-11-23T07:09:58.977868+00:00
+[2023-11-23T07:10:08.825+0000] {logging_mixin.py:120} INFO - printing the user-data {'results': [{'gender': 'male', 'name': {'title': 'Mr', 'first': 'Nepobor', 'last': "G'zhickiy"}, 'location': {'street': {'number': 1501, 'name': 'Georgiya Goryushka'}, 'city': 'Glinyani', 'state': 'Hmelnicka', 'country': 'Ukraine', 'postcode': 49509, 'coordinates': {'latitude': '81.0866', 'longitude': '-113.4594'}, 'timezone': {'offset': '+6:00', 'description': 'Almaty, Dhaka, Colombo'}}, 'email': "nepobor.g'zhickiy@example.com", 'login': {'uuid': '93c243e7-70f9-4d79-ac2c-210dc472312e', 'username': 'blacksnake242', 'password': 'sakura', 'salt': 'Bb0MZDL6', 'md5': 'c9915ef8131fd2aa0d0471c854e502b7', 'sha1': '89a589cba98cdd5f2f5507dc97cb9ab2ccd98ee5', 'sha256': 'ce7ef10b3609cc6dcad79201390104f3bce58bd582bbf55123c2ccecf97bb87f'}, 'dob': {'date': '1951-04-25T10:56:57.952Z', 'age': 72}, 'registered': {'date': '2002-10-01T13:59:09.525Z', 'age': 21}, 'phone': '(098) H41-2119', 'cell': '(097) Q13-1236', 'id': {'name': '', 'value': None}, 'picture': {'large': 'https://randomuser.me/api/portraits/men/84.jpg', 'medium': 'https://randomuser.me/api/portraits/med/men/84.jpg', 'thumbnail': 'https://randomuser.me/api/portraits/thumb/men/84.jpg'}, 'nat': 'UA'}], 'info': {'seed': '1aacb04314f7fbbe', 'results': 1, 'page': 1, 'version': '1.4'}}
+[2023-11-23T07:10:08.837+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-11-23T07:10:08.854+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=rand_user, task_id=process_user, execution_date=20231123T070958, start_date=20231123T071008, end_date=20231123T071008
+[2023-11-23T07:10:08.887+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2023-11-23T07:10:08.949+0000] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

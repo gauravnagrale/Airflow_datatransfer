@@ -1,0 +1,24 @@
+[2023-11-23T07:14:06.391+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.process_user manual__2023-11-23T07:13:59.209732+00:00 [queued]>
+[2023-11-23T07:14:06.408+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.process_user manual__2023-11-23T07:13:59.209732+00:00 [queued]>
+[2023-11-23T07:14:06.408+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-23T07:14:06.409+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2023-11-23T07:14:06.409+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-23T07:14:06.435+0000] {taskinstance.py:1383} INFO - Executing <Task(PythonOperator): process_user> on 2023-11-23 07:13:59.209732+00:00
+[2023-11-23T07:14:06.442+0000] {standard_task_runner.py:55} INFO - Started process 9531 to run task
+[2023-11-23T07:14:06.448+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'rand_user', 'process_user', 'manual__2023-11-23T07:13:59.209732+00:00', '--job-id', '629', '--raw', '--subdir', 'DAGS_FOLDER/predictions.py', '--cfg-path', '/tmp/tmpg2c1b17t']
+[2023-11-23T07:14:06.450+0000] {standard_task_runner.py:83} INFO - Job 629: Subtask process_user
+[2023-11-23T07:14:06.537+0000] {task_command.py:376} INFO - Running <TaskInstance: rand_user.process_user manual__2023-11-23T07:13:59.209732+00:00 [running]> on host f71f95879a41
+[2023-11-23T07:14:06.648+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=rand_user
+AIRFLOW_CTX_TASK_ID=process_user
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-23T07:13:59.209732+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-11-23T07:13:59.209732+00:00
+[2023-11-23T07:14:06.665+0000] {logging_mixin.py:120} INFO - printing the user-data {'results': [{'gender': 'female', 'name': {'title': 'Miss', 'first': 'Carol', 'last': 'Palmer'}, 'location': {'street': {'number': 9077, 'name': 'Rookery Road'}, 'city': 'Passage West', 'state': 'Galway', 'country': 'Ireland', 'postcode': 95595, 'coordinates': {'latitude': '3.6031', 'longitude': '92.2341'}, 'timezone': {'offset': '+9:30', 'description': 'Adelaide, Darwin'}}, 'email': 'carol.palmer@example.com', 'login': {'uuid': '2b2eebb5-f700-4e38-ac50-a54a3824de82', 'username': 'beautifulostrich423', 'password': 'flower', 'salt': 'Bbc6oG4W', 'md5': '0631fdf729d20f690453124de5243014', 'sha1': '7f1a03d77d3319fa55e3809c1169b8254b30ce63', 'sha256': '41eb82b446b49205f7e4d6acf222d0e33f65ad927b6398be63dd2fcc89d06ca1'}, 'dob': {'date': '1961-04-17T15:08:14.216Z', 'age': 62}, 'registered': {'date': '2015-12-15T19:25:09.903Z', 'age': 7}, 'phone': '041-128-9513', 'cell': '081-581-5960', 'id': {'name': 'PPS', 'value': '3768929T'}, 'picture': {'large': 'https://randomuser.me/api/portraits/women/22.jpg', 'medium': 'https://randomuser.me/api/portraits/med/women/22.jpg', 'thumbnail': 'https://randomuser.me/api/portraits/thumb/women/22.jpg'}, 'nat': 'IE'}], 'info': {'seed': 'cf7abbf3e2e0e3e9', 'results': 1, 'page': 1, 'version': '1.4'}}
+[2023-11-23T07:14:06.674+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-11-23T07:14:06.687+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=rand_user, task_id=process_user, execution_date=20231123T071359, start_date=20231123T071406, end_date=20231123T071406
+[2023-11-23T07:14:06.741+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2023-11-23T07:14:06.776+0000] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

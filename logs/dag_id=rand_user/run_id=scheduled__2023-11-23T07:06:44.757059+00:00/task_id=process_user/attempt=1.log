@@ -1,0 +1,24 @@
+[2023-11-23T07:21:53.496+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.process_user scheduled__2023-11-23T07:06:44.757059+00:00 [queued]>
+[2023-11-23T07:21:53.522+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.process_user scheduled__2023-11-23T07:06:44.757059+00:00 [queued]>
+[2023-11-23T07:21:53.522+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-23T07:21:53.523+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2023-11-23T07:21:53.524+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-23T07:21:53.560+0000] {taskinstance.py:1383} INFO - Executing <Task(PythonOperator): process_user> on 2023-11-23 07:06:44.757059+00:00
+[2023-11-23T07:21:53.573+0000] {standard_task_runner.py:55} INFO - Started process 9917 to run task
+[2023-11-23T07:21:53.583+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'rand_user', 'process_user', 'scheduled__2023-11-23T07:06:44.757059+00:00', '--job-id', '639', '--raw', '--subdir', 'DAGS_FOLDER/predictions.py', '--cfg-path', '/tmp/tmptpkan3g5']
+[2023-11-23T07:21:53.587+0000] {standard_task_runner.py:83} INFO - Job 639: Subtask process_user
+[2023-11-23T07:21:53.721+0000] {task_command.py:376} INFO - Running <TaskInstance: rand_user.process_user scheduled__2023-11-23T07:06:44.757059+00:00 [running]> on host f71f95879a41
+[2023-11-23T07:21:53.907+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=rand_user
+AIRFLOW_CTX_TASK_ID=process_user
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-23T07:06:44.757059+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-11-23T07:06:44.757059+00:00
+[2023-11-23T07:21:53.963+0000] {logging_mixin.py:120} INFO - printing the user-data {'results': [{'gender': 'male', 'name': {'title': 'Mr', 'first': 'Juup', 'last': 'Elissen'}, 'location': {'street': {'number': 3618, 'name': 'Carillonstraat'}, 'city': 'Kruiningen', 'state': 'Gelderland', 'country': 'Netherlands', 'postcode': '9728 UU', 'coordinates': {'latitude': '30.4403', 'longitude': '-145.6296'}, 'timezone': {'offset': '+3:30', 'description': 'Tehran'}}, 'email': 'juup.elissen@example.com', 'login': {'uuid': '73954749-f174-467e-811b-de5ffaaa1ba7', 'username': 'bigpeacock846', 'password': 'anita', 'salt': '9gDtBC5G', 'md5': '387daedc96630d91807bb60ee2141b84', 'sha1': 'e397b7315b9dc7d773010598a77afbe730a47157', 'sha256': '7645a8f82053bda6c80e686063c3dadbeb80bd00ddbce9f53de107e81b8ed545'}, 'dob': {'date': '1994-11-07T08:54:01.047Z', 'age': 29}, 'registered': {'date': '2009-03-29T09:31:16.925Z', 'age': 14}, 'phone': '(0116) 962393', 'cell': '(06) 74680133', 'id': {'name': 'BSN', 'value': '93741189'}, 'picture': {'large': 'https://randomuser.me/api/portraits/men/96.jpg', 'medium': 'https://randomuser.me/api/portraits/med/men/96.jpg', 'thumbnail': 'https://randomuser.me/api/portraits/thumb/men/96.jpg'}, 'nat': 'NL'}], 'info': {'seed': '5f631d1f473acd46', 'results': 1, 'page': 1, 'version': '1.4'}}
+[2023-11-23T07:21:53.982+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-11-23T07:21:54.030+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=rand_user, task_id=process_user, execution_date=20231123T070644, start_date=20231123T072153, end_date=20231123T072154
+[2023-11-23T07:21:54.122+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2023-11-23T07:21:54.224+0000] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

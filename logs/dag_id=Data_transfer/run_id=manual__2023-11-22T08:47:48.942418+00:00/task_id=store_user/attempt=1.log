@@ -1,0 +1,2 @@
+[2023-11-22T08:47:50.213+0000] {taskinstance.py:1159} INFO - Dependencies not met for <TaskInstance: Data_transfer.store_user manual__2023-11-22T08:47:48.942418+00:00 [queued]>, dependency 'Trigger Rule' FAILED: Task's trigger rule 'all_success' requires all upstream tasks to have succeeded, but found 1 non-success(es). upstream_tasks_state={'total': 1, 'successes': 0, 'skipped': 0, 'failed': 0, 'removed': 0, 'upstream_failed': 0, 'done': 0}, upstream_task_ids={'process_user'}
+[2023-11-22T08:47:50.215+0000] {local_task_job.py:103} INFO - Task is not able to be run

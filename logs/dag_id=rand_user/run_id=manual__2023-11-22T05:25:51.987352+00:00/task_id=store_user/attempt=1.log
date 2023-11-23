@@ -1,0 +1,42 @@
+[2023-11-22T05:26:04.611+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.store_user manual__2023-11-22T05:25:51.987352+00:00 [queued]>
+[2023-11-22T05:26:04.636+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.store_user manual__2023-11-22T05:25:51.987352+00:00 [queued]>
+[2023-11-22T05:26:04.636+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-22T05:26:04.637+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2023-11-22T05:26:04.638+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-22T05:26:04.681+0000] {taskinstance.py:1383} INFO - Executing <Task(PythonOperator): store_user> on 2023-11-22 05:25:51.987352+00:00
+[2023-11-22T05:26:04.693+0000] {standard_task_runner.py:55} INFO - Started process 5285 to run task
+[2023-11-22T05:26:04.701+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'rand_user', 'store_user', 'manual__2023-11-22T05:25:51.987352+00:00', '--job-id', '661', '--raw', '--subdir', 'DAGS_FOLDER/predictions.py', '--cfg-path', '/tmp/tmp_4iboj_j']
+[2023-11-22T05:26:04.704+0000] {standard_task_runner.py:83} INFO - Job 661: Subtask store_user
+[2023-11-22T05:26:04.859+0000] {task_command.py:376} INFO - Running <TaskInstance: rand_user.store_user manual__2023-11-22T05:25:51.987352+00:00 [running]> on host 91f7624ceef9
+[2023-11-22T05:26:05.001+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=rand_user
+AIRFLOW_CTX_TASK_ID=store_user
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-22T05:25:51.987352+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-11-22T05:25:51.987352+00:00
+[2023-11-22T05:26:05.004+0000] {postgres.py:129} INFO - Running copy expert: COPY rand_users(uuid, title, firstname, lastname, gender, country, username, password, email, age) FROM stdin WITH DELIMITER as ',' DEFAULT 'N/A', filename: /tmp/processed_user.csv
+[2023-11-22T05:26:05.020+0000] {base.py:71} INFO - Using connection ID 'postgres' for task execution.
+[2023-11-22T05:26:05.031+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 193, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/predictions.py", line 43, in _store_user
+    filename='/tmp/processed_user.csv'
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/postgres/hooks/postgres.py", line 137, in copy_expert
+    cur.copy_expert(sql, file)
+psycopg2.errors.SyntaxError: syntax error at or near "DEFAULT"
+LINE 1: ...ord, email, age) FROM stdin WITH DELIMITER as ',' DEFAULT 'N...
+                                                             ^
+
+[2023-11-22T05:26:05.047+0000] {taskinstance.py:1406} INFO - Marking task as UP_FOR_RETRY. dag_id=rand_user, task_id=store_user, execution_date=20231122T052551, start_date=20231122T052604, end_date=20231122T052605
+[2023-11-22T05:26:05.068+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 661 for task store_user (syntax error at or near "DEFAULT"
+LINE 1: ...ord, email, age) FROM stdin WITH DELIMITER as ',' DEFAULT 'N...
+                                                             ^
+; 5285)
+[2023-11-22T05:26:05.114+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2023-11-22T05:26:05.170+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

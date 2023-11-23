@@ -1,0 +1,42 @@
+[2023-11-22T09:53:47.308+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Data_transfer.store_user manual__2023-11-22T09:51:33.433061+00:00 [queued]>
+[2023-11-22T09:53:47.324+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Data_transfer.store_user manual__2023-11-22T09:51:33.433061+00:00 [queued]>
+[2023-11-22T09:53:47.325+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-22T09:53:47.325+0000] {taskinstance.py:1363} INFO - Starting attempt 3 of 3
+[2023-11-22T09:53:47.326+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-22T09:53:47.348+0000] {taskinstance.py:1383} INFO - Executing <Task(PythonOperator): store_user> on 2023-11-22 09:51:33.433061+00:00
+[2023-11-22T09:53:47.356+0000] {standard_task_runner.py:55} INFO - Started process 5528 to run task
+[2023-11-22T09:53:47.362+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Data_transfer', 'store_user', 'manual__2023-11-22T09:51:33.433061+00:00', '--job-id', '126', '--raw', '--subdir', 'DAGS_FOLDER/data_transfer.py', '--cfg-path', '/tmp/tmpl1h83855']
+[2023-11-22T09:53:47.365+0000] {standard_task_runner.py:83} INFO - Job 126: Subtask store_user
+[2023-11-22T09:53:47.439+0000] {task_command.py:376} INFO - Running <TaskInstance: Data_transfer.store_user manual__2023-11-22T09:51:33.433061+00:00 [running]> on host f71f95879a41
+[2023-11-22T09:53:47.507+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=Data_transfer
+AIRFLOW_CTX_TASK_ID=store_user
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-22T09:51:33.433061+00:00
+AIRFLOW_CTX_TRY_NUMBER=3
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-11-22T09:51:33.433061+00:00
+[2023-11-22T09:53:47.508+0000] {postgres.py:129} INFO - Running copy expert: COPY table1_users FROM stdin WITH DELIMITER as ',' ON CONFLICT DO NOTHING, filename: /tmp/rand_processed_user.csv
+[2023-11-22T09:53:47.518+0000] {base.py:71} INFO - Using connection ID 'postgres' for task execution.
+[2023-11-22T09:53:47.522+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 193, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/data_transfer.py", line 39, in _store_user
+    filename='/tmp/rand_processed_user.csv'
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/postgres/hooks/postgres.py", line 137, in copy_expert
+    cur.copy_expert(sql, file)
+psycopg2.errors.SyntaxError: syntax error at or near "ON"
+LINE 1: ...OPY table1_users FROM stdin WITH DELIMITER as ',' ON CONFLIC...
+                                                             ^
+
+[2023-11-22T09:53:47.532+0000] {taskinstance.py:1406} INFO - Marking task as FAILED. dag_id=Data_transfer, task_id=store_user, execution_date=20231122T095133, start_date=20231122T095347, end_date=20231122T095347
+[2023-11-22T09:53:47.542+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 126 for task store_user (syntax error at or near "ON"
+LINE 1: ...OPY table1_users FROM stdin WITH DELIMITER as ',' ON CONFLIC...
+                                                             ^
+; 5528)
+[2023-11-22T09:53:47.573+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2023-11-22T09:53:47.634+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

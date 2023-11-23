@@ -1,0 +1,36 @@
+[2023-11-22T10:04:32.726+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Data_transfer.upload_data_source manual__2023-11-22T10:03:21.414284+00:00 [queued]>
+[2023-11-22T10:04:32.741+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: Data_transfer.upload_data_source manual__2023-11-22T10:03:21.414284+00:00 [queued]>
+[2023-11-22T10:04:32.741+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-22T10:04:32.742+0000] {taskinstance.py:1363} INFO - Starting attempt 2 of 3
+[2023-11-22T10:04:32.742+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-22T10:04:32.761+0000] {taskinstance.py:1383} INFO - Executing <Task(GenericTransfer): upload_data_source> on 2023-11-22 10:03:21.414284+00:00
+[2023-11-22T10:04:32.768+0000] {standard_task_runner.py:55} INFO - Started process 6071 to run task
+[2023-11-22T10:04:32.772+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'Data_transfer', 'upload_data_source', 'manual__2023-11-22T10:03:21.414284+00:00', '--job-id', '139', '--raw', '--subdir', 'DAGS_FOLDER/data_transfer.py', '--cfg-path', '/tmp/tmpieihcmyn']
+[2023-11-22T10:04:32.775+0000] {standard_task_runner.py:83} INFO - Job 139: Subtask upload_data_source
+[2023-11-22T10:04:32.867+0000] {task_command.py:376} INFO - Running <TaskInstance: Data_transfer.upload_data_source manual__2023-11-22T10:03:21.414284+00:00 [running]> on host f71f95879a41
+[2023-11-22T10:04:32.963+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=Data_transfer
+AIRFLOW_CTX_TASK_ID=upload_data_source
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-22T10:03:21.414284+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-11-22T10:03:21.414284+00:00
+[2023-11-22T10:04:32.975+0000] {base.py:71} INFO - Using connection ID 'postgres' for task execution.
+[2023-11-22T10:04:33.298+0000] {base.py:71} INFO - Using connection ID 'source_db_***' for task execution.
+[2023-11-22T10:04:33.590+0000] {generic_transfer.py:76} INFO - Extracting data from postgres
+[2023-11-22T10:04:33.596+0000] {generic_transfer.py:77} INFO - Executing: 
+ INSERT INTO table1_users SELECT * FROM table1_users ON CONFLICT DO NOTHING
+[2023-11-22T10:04:33.615+0000] {base.py:71} INFO - Using connection ID 'postgres' for task execution.
+[2023-11-22T10:04:33.639+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/generic_transfer.py", line 85, in execute
+    results = get_records(self.sql)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 218, in get_records
+    return cur.fetchall()
+psycopg2.ProgrammingError: no results to fetch
+[2023-11-22T10:04:33.685+0000] {taskinstance.py:1406} INFO - Marking task as UP_FOR_RETRY. dag_id=Data_transfer, task_id=upload_data_source, execution_date=20231122T100321, start_date=20231122T100432, end_date=20231122T100433
+[2023-11-22T10:04:33.729+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 139 for task upload_data_source (no results to fetch; 6071)
+[2023-11-22T10:04:33.788+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2023-11-22T10:04:33.909+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

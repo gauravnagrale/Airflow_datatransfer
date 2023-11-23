@@ -1,0 +1,47 @@
+[2023-11-22T05:30:49.779+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.process_user manual__2023-11-22T05:30:40.430513+00:00 [queued]>
+[2023-11-22T05:30:49.800+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: rand_user.process_user manual__2023-11-22T05:30:40.430513+00:00 [queued]>
+[2023-11-22T05:30:49.800+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-22T05:30:49.801+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 3
+[2023-11-22T05:30:49.801+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-22T05:30:49.830+0000] {taskinstance.py:1383} INFO - Executing <Task(PythonOperator): process_user> on 2023-11-22 05:30:40.430513+00:00
+[2023-11-22T05:30:49.842+0000] {standard_task_runner.py:55} INFO - Started process 5553 to run task
+[2023-11-22T05:30:49.850+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'rand_user', 'process_user', 'manual__2023-11-22T05:30:40.430513+00:00', '--job-id', '685', '--raw', '--subdir', 'DAGS_FOLDER/predictions.py', '--cfg-path', '/tmp/tmpoy2agvzm']
+[2023-11-22T05:30:49.855+0000] {standard_task_runner.py:83} INFO - Job 685: Subtask process_user
+[2023-11-22T05:30:49.988+0000] {task_command.py:376} INFO - Running <TaskInstance: rand_user.process_user manual__2023-11-22T05:30:40.430513+00:00 [running]> on host 91f7624ceef9
+[2023-11-22T05:30:50.142+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Gaurav
+AIRFLOW_CTX_DAG_ID=rand_user
+AIRFLOW_CTX_TASK_ID=process_user
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-22T05:30:40.430513+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-11-22T05:30:40.430513+00:00
+[2023-11-22T05:30:50.174+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/indexes/base.py", line 3361, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 76, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 108, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5198, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5206, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 0
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 193, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/predictions.py", line 29, in _process_user
+    print("Printing the DataFrame:", processed_user[0][0])
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/frame.py", line 3458, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/indexes/base.py", line 3363, in get_loc
+    raise KeyError(key) from err
+KeyError: 0
+[2023-11-22T05:30:50.203+0000] {taskinstance.py:1406} INFO - Marking task as UP_FOR_RETRY. dag_id=rand_user, task_id=process_user, execution_date=20231122T053040, start_date=20231122T053049, end_date=20231122T053050
+[2023-11-22T05:30:50.227+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 685 for task process_user (0; 5553)
+[2023-11-22T05:30:50.261+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2023-11-22T05:30:50.330+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
