@@ -2919,3 +2919,17 @@ airflow.exceptions.DuplicateTaskIdFound: Task id 'Create_table' has already been
 [2023-11-23T08:32:04.576+0000] {logging_mixin.py:120} INFO - [2023-11-23T08:32:04.576+0000] {dag.py:2585} INFO - Sync 1 DAGs
 [2023-11-23T08:32:04.742+0000] {logging_mixin.py:120} INFO - [2023-11-23T08:32:04.742+0000] {dag.py:3340} INFO - Setting next_dagrun for Data_transfer to 2023-11-23T08:20:14.986622+00:00, run_after=2023-11-23T08:50:14.986622+00:00
 [2023-11-23T08:32:04.775+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/data_transfer.py took 0.643 seconds
+[2023-11-23T08:32:35.041+0000] {processor.py:154} INFO - Started process (PID=11588) to work on /opt/airflow/dags/data_transfer.py
+[2023-11-23T08:32:35.044+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/data_transfer.py for tasks to queue
+[2023-11-23T08:32:35.046+0000] {logging_mixin.py:120} INFO - [2023-11-23T08:32:35.046+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/data_transfer.py
+[2023-11-23T08:32:35.342+0000] {processor.py:766} INFO - DAG(s) dict_keys(['Data_transfer']) retrieved from /opt/airflow/dags/data_transfer.py
+[2023-11-23T08:32:35.521+0000] {logging_mixin.py:120} INFO - [2023-11-23T08:32:35.521+0000] {dag.py:2585} INFO - Sync 1 DAGs
+[2023-11-23T08:32:35.563+0000] {logging_mixin.py:120} INFO - [2023-11-23T08:32:35.563+0000] {dag.py:3340} INFO - Setting next_dagrun for Data_transfer to 2023-11-23T08:20:14.986622+00:00, run_after=2023-11-23T08:50:14.986622+00:00
+[2023-11-23T08:32:35.593+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/data_transfer.py took 0.565 seconds
+[2023-11-23T08:33:05.830+0000] {processor.py:154} INFO - Started process (PID=11617) to work on /opt/airflow/dags/data_transfer.py
+[2023-11-23T08:33:05.832+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/data_transfer.py for tasks to queue
+[2023-11-23T08:33:05.834+0000] {logging_mixin.py:120} INFO - [2023-11-23T08:33:05.833+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/data_transfer.py
+[2023-11-23T08:33:06.725+0000] {processor.py:766} INFO - DAG(s) dict_keys(['Data_transfer']) retrieved from /opt/airflow/dags/data_transfer.py
+[2023-11-23T08:33:06.786+0000] {logging_mixin.py:120} INFO - [2023-11-23T08:33:06.785+0000] {dag.py:2585} INFO - Sync 1 DAGs
+[2023-11-23T08:33:06.867+0000] {logging_mixin.py:120} INFO - [2023-11-23T08:33:06.867+0000] {dag.py:3340} INFO - Setting next_dagrun for Data_transfer to 2023-11-23T08:20:14.986622+00:00, run_after=2023-11-23T08:50:14.986622+00:00
+[2023-11-23T08:33:06.960+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/data_transfer.py took 1.137 seconds

@@ -3100,3 +3100,17 @@ SyntaxError: invalid syntax
 [2023-11-23T08:32:08.869+0000] {logging_mixin.py:120} INFO - [2023-11-23T08:32:08.868+0000] {dag.py:2585} INFO - Sync 1 DAGs
 [2023-11-23T08:32:08.895+0000] {logging_mixin.py:120} INFO - [2023-11-23T08:32:08.895+0000] {dag.py:3340} INFO - Setting next_dagrun for rand_user to 2023-11-23T08:20:25.705671+00:00, run_after=2023-11-23T08:35:25.705671+00:00
 [2023-11-23T08:32:08.914+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/predictions.py took 0.694 seconds
+[2023-11-23T08:32:39.169+0000] {processor.py:154} INFO - Started process (PID=11590) to work on /opt/airflow/dags/predictions.py
+[2023-11-23T08:32:39.171+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/predictions.py for tasks to queue
+[2023-11-23T08:32:39.173+0000] {logging_mixin.py:120} INFO - [2023-11-23T08:32:39.173+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/predictions.py
+[2023-11-23T08:32:39.474+0000] {processor.py:766} INFO - DAG(s) dict_keys(['rand_user']) retrieved from /opt/airflow/dags/predictions.py
+[2023-11-23T08:32:39.939+0000] {logging_mixin.py:120} INFO - [2023-11-23T08:32:39.939+0000] {dag.py:2585} INFO - Sync 1 DAGs
+[2023-11-23T08:32:39.972+0000] {logging_mixin.py:120} INFO - [2023-11-23T08:32:39.972+0000] {dag.py:3340} INFO - Setting next_dagrun for rand_user to 2023-11-23T08:20:25.705671+00:00, run_after=2023-11-23T08:35:25.705671+00:00
+[2023-11-23T08:32:39.992+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/predictions.py took 0.837 seconds
+[2023-11-23T08:33:10.067+0000] {processor.py:154} INFO - Started process (PID=11621) to work on /opt/airflow/dags/predictions.py
+[2023-11-23T08:33:10.070+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/predictions.py for tasks to queue
+[2023-11-23T08:33:10.074+0000] {logging_mixin.py:120} INFO - [2023-11-23T08:33:10.073+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/predictions.py
+[2023-11-23T08:33:10.512+0000] {processor.py:766} INFO - DAG(s) dict_keys(['rand_user']) retrieved from /opt/airflow/dags/predictions.py
+[2023-11-23T08:33:10.690+0000] {logging_mixin.py:120} INFO - [2023-11-23T08:33:10.689+0000] {dag.py:2585} INFO - Sync 1 DAGs
+[2023-11-23T08:33:10.712+0000] {logging_mixin.py:120} INFO - [2023-11-23T08:33:10.712+0000] {dag.py:3340} INFO - Setting next_dagrun for rand_user to 2023-11-23T08:20:25.705671+00:00, run_after=2023-11-23T08:35:25.705671+00:00
+[2023-11-23T08:33:10.733+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/predictions.py took 0.680 seconds
